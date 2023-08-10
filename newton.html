@@ -265,7 +265,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="método-de-newton-rapshon" class="level1">
 <h1>Método de Newton Rapshon</h1>
-<p><img src="figures/newton.png" class="img-fluid" alt="Método de Newton"> <a href="https://www.geogebra.org/m/hepx2wta">Forma gráfica</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/newton.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Método de Newton</figcaption><p></p>
+</figure>
+</div>
+<p><a href="https://www.geogebra.org/m/hepx2wta">Forma gráfica</a></p>
 <p>El método de Newton-Raphson es un método de segundo orden para encontrar raíces de una función <span class="math inline">\(f(x)\)</span>, es decir, encontrar <span class="math inline">\(x\)</span> tal que <span class="math inline">\(f(x)=0\)</span>. Para obtener el algoritmo del método vamos a usar el desarrollo de Taylor de <span class="math inline">\(f(x)\)</span> alrededor de <span class="math inline">\(x_0\)</span>:</p>
 <p><span class="math display">\[f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots\]</span> truncando la serie a primer orden y despejando <span class="math inline">\(x\)</span> obtenemos: <span class="math display">\[0=f(x_0) + f'(x_0)(x-x_0)+O(|x-x_0|^2)\]</span> <strong>Note</strong> que aquí podemos construir una función <span class="math display">\[g(x) = f(x_0) + f'(x_0)(x-x_0)\]</span> que pasa por el punto <span class="math inline">\((x_0,f(x_0))\)</span> y tiene pendiente <span class="math inline">\(f'(x_0)\)</span>, es decir, es la recta tangente a <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(x_0\)</span>, de esta forma podemos definir <span class="math inline">\(x_1\)</span> como la intersección de <span class="math inline">\(g(x)\)</span> con el eje <span class="math inline">\(x\)</span>, de donde <span class="math display">\[x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\]</span> de forma iterativa tenemos el método de Newton-Raphson:</p>
 <p><span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]</span></p>
@@ -352,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="librerías-externas" class="level1">
 <h1>librerías externas</h1>
-<p>Existen diferentes librerías para calcular encontrar la raíz de una función, en este caso se usará la librería de scipy, la cual contiene una función llamada newton que permite encontrar la raíz de una función, para esto se debe ingresar la función, la derivada de la función y el valor inicial de la raíz. en el siguiente enlace encontraras las funciones que contiene la <a href="https://docs.scipy.org/doc/scipy/reference/optimize.html">librería de scipy</a>.</p>
+<p>Existen diferentes librerías para calcular encontrar la raíz de una función, en este caso se usará la librería de scipy, la cual contiene una función llamada newton que permite encontrar la raíz de una función, para esto se debe ingresar la función, la derivada de la función y el valor inicial de la raíz. en el siguiente enlace encontraras las funciones que contiene la <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html">librería de scipy</a>.</p>
 <p><strong>Ejercicio</strong> + Lea atentamente la documentación y haga un resumen de lo encontrado. + Encuentre la raíz de la función <span class="math inline">\(f(x)=x^3-2x^2-5\)</span>, usando los métodos de bisección y newton (su implementación, y el de la librería scipy ), compare los resultados obtenidos, aproximación, tiempo de computo, número de iteraciones, etc.</p>
 <p>Para elvaluar el tiempo de computo usted puede usar el siguiente código:</p>
 <pre><code>```python
