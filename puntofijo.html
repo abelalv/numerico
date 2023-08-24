@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases - Newton Rapshon</title>
+<title>clases - Método de la bisección</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Newton Rapshon</h1>
+      <h1 class="quarto-secondary-nav-title">Método de la bisección</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -211,12 +211,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Raices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Raices</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./biseccion.html" class="sidebar-item-text sidebar-link">Método de la bisección</a>
@@ -224,14 +224,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./newton.html" class="sidebar-item-text sidebar-link active">Newton Rapshon</a>
+  <a href="./newton.html" class="sidebar-item-text sidebar-link">Newton Rapshon</a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./punto_fijo.html" class="sidebar-item-text sidebar-link">Método del punto fijo</a>
-  </div>
-</li>
+  puntofixo.ipynb
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -247,11 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./taller.html" class="sidebar-item-text sidebar-link">Método de la bisección</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./taller_resumen_1.html" class="sidebar-item-text sidebar-link">Taller Resumen</a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -262,11 +255,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -278,8 +266,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#método-de-newton-rapshon" id="toc-método-de-newton-rapshon" class="nav-link active" data-scroll-target="#método-de-newton-rapshon">Método de Newton Rapshon</a></li>
-  <li><a href="#librerías-externas" id="toc-librerías-externas" class="nav-link" data-scroll-target="#librerías-externas">librerías externas</a></li>
+  <li><a href="#punto-fijo" id="toc-punto-fijo" class="nav-link active" data-scroll-target="#punto-fijo">punto fijo</a>
+  <ul class="collapse">
+  <li><a href="#por-ejemplo" id="toc-por-ejemplo" class="nav-link" data-scroll-target="#por-ejemplo">Por ejemplo</a></li>
+  <li><a href="#iteración-del-punto-fijo" id="toc-iteración-del-punto-fijo" class="nav-link" data-scroll-target="#iteración-del-punto-fijo">Iteración del punto fijo</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Newton Rapshon</h1>
+<h1 class="title d-none d-lg-block">Método de la bisección</h1>
 </div>
 
 
@@ -303,122 +295,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="método-de-newton-rapshon" class="level1">
-<h1>Método de Newton Rapshon</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/newton.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Método de Newton</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://www.geogebra.org/m/hepx2wta">Forma gráfica</a></p>
-<p>El método de Newton-Raphson es un método de segundo orden para encontrar raíces de una función <span class="math inline">\(f(x)\)</span>, es decir, encontrar <span class="math inline">\(x\)</span> tal que <span class="math inline">\(f(x)=0\)</span>. Para obtener el algoritmo del método vamos a usar el desarrollo de Taylor de <span class="math inline">\(f(x)\)</span> alrededor de <span class="math inline">\(x_0\)</span>:</p>
-<p><span class="math display">\[f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots\]</span> truncando la serie a primer orden y despejando <span class="math inline">\(x\)</span> obtenemos: <span class="math display">\[0=f(x_0) + f'(x_0)(x-x_0)+O(|x-x_0|^2)\]</span> <strong>Note</strong> que aquí podemos construir una función <span class="math display">\[g(x) = f(x_0) + f'(x_0)(x-x_0)\]</span> que pasa por el punto <span class="math inline">\((x_0,f(x_0))\)</span> y tiene pendiente <span class="math inline">\(f'(x_0)\)</span>, es decir, es la recta tangente a <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(x_0\)</span>, de esta forma podemos definir <span class="math inline">\(x_1\)</span> como la intersección de <span class="math inline">\(g(x)\)</span> con el eje <span class="math inline">\(x\)</span>, de donde <span class="math display">\[x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}\]</span> de forma iterativa tenemos el método de Newton-Raphson:</p>
-<p><span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\]</span></p>
-<p><strong>Note</strong> que el método de Newton-Raphson es un método de segundo orden, es decir, el error en la aproximación <span class="math inline">\(x_n\)</span> es proporcional al cuadrado del error en la aproximación <span class="math inline">\(x_{n-1}\)</span>.</p>
-<p><strong>Note</strong> que el método de Newton-Raphson requiere el cálculo de la derivada de <span class="math inline">\(f(x)\)</span>, en algunos casos esto puede ser complicado, en estos casos se puede usar el método de la secante que es una aproximación numérica de la derivada.</p>
-<p><strong>Note</strong> que el método de Newton-Raphson puede no converger, en estos casos se puede usar el método de la bisección.</p>
-<p><strong>Note</strong> que el algoritmo necesita un punto inicial <span class="math inline">\(x_0\)</span> cercano a la raíz que se quiere encontrar.</p>
-<p><strong>Ejercicio</strong> Escriba cuales son las ventajas y desventajas del método de Newton Raphson sobre el método de la bisección.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## newton rapson method</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">3</span><span class="op">-</span><span class="dv">2</span><span class="op">*</span>x<span class="op">-</span><span class="dv">5</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> df(x):</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">-</span><span class="dv">2</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> newton(x0,eps):</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    x1<span class="op">=</span>x0<span class="op">-</span>f(x0)<span class="op">/</span>df(x0)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">abs</span>(x1<span class="op">-</span>x0)<span class="op">&gt;</span>eps:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        x0<span class="op">=</span>x1</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        x1<span class="op">=</span>x0<span class="op">-</span>f(x0)<span class="op">/</span>df(x0)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Ejercicio</strong> Note que el algoritmo anterior tiene un problema. ¿Cuál es? ¿Cómo lo solucionaría?</p>
-<p>Reescriba el algoritmo anterior para que no tenga el problema que identificó.</p>
-<p><strong>Note</strong> que en este método tenemos que calcular la derivada, lo podemos hacer de dos formas:</p>
-<ul>
-<li>Escribir deiractamente la derivada de la función.</li>
-<li>Utilizar la función <code>Derivative</code> de <code>SymPy</code> y luego evaluarla en el punto.</li>
-</ul>
-<p>En el siguiente código usted vera como se puede usar la función <code>Derivative</code> de <code>SymPy</code> para calcular la derivada de una función y luego evaluarla en un punto.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir la variable simbólica</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir la función simbólica</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>funcion_simbolica <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">2</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Función numpy</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>funcion_numpy <span class="op">=</span> sp.lambdify(x, funcion_simbolica, <span class="st">'numpy'</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la derivada</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>derivada_simbolica <span class="op">=</span> sp.diff(funcion_simbolica, x)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la derivada en una función de NumPy</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>derivada_numpy <span class="op">=</span> sp.lambdify(x, derivada_simbolica, <span class="st">'numpy'</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un rango de valores para x</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>x_vals <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">400</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular los valores correspondientes para la función y su derivada</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>funcion_vals <span class="op">=</span> funcion_numpy(x_vals)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>derivada_vals <span class="op">=</span> derivada_numpy(x_vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una figura y ejes</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Función y su Derivada'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar la función original</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x_vals, funcion_vals, label<span class="op">=</span><span class="st">'Función Original'</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar la derivada</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.plot(x_vals, derivada_vals, label<span class="op">=</span><span class="st">'Derivada'</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar leyenda</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="newton_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><strong>Ejercicio</strong> Use el anterior código para reformar el método de Newton-Raphson para que solo se necesite la función <span class="math inline">\(f\)</span> y el internamente se calcule la derivada simbólica.</p>
+<section id="punto-fijo" class="level1">
+<h1>punto fijo</h1>
+<p>Decimos que una función tiene un punto fijo si existe un valor <span class="math inline">\(x^*\)</span> tal que <span class="math inline">\(f(x^*) = x^*\)</span>.</p>
+<p>Por ejemplo, la función <span class="math inline">\(f(x) = x^2\)</span> tiene un punto fijo en <span class="math inline">\(x^* = 0\)</span> y <span class="math inline">\(x^*=1\)</span>.</p>
+<p>Esta definición la podemos usar para encontrar la raiz de una ecuación <span class="math inline">\(f(x) = 0\)</span>.</p>
+<section id="por-ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="por-ejemplo">Por ejemplo</h2>
+<p><span class="math display">\[f(x)=x^3+x-1\]</span> aqui podremos encontrar una raiz de la ecuación <span class="math inline">\(f(x)=0\)</span> si encontramos un punto fijo de la función <span class="math inline">\(g(x)=x-f(x)\)</span>. De esta forma <span class="math display">\[g(x)=x-f(x)=x-x^3-x+1=x^3-1\]</span></p>
 </section>
-<section id="librerías-externas" class="level1">
-<h1>librerías externas</h1>
-<p>Existen diferentes librerías para calcular encontrar la raíz de una función, en este caso se usará la librería de scipy, la cual contiene una función llamada newton que permite encontrar la raíz de una función, para esto se debe ingresar la función, la derivada de la función y el valor inicial de la raíz. en el siguiente enlace encontraras las funciones que contiene la <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html">librería de scipy</a>.</p>
-<p><strong>Ejercicio</strong> + Lea atentamente la documentación y haga un resumen de lo encontrado. + Encuentre la raíz de la función <span class="math inline">\(f(x)=x^3-2x^2-5\)</span>, usando los métodos de bisección y newton (su implementación, y el de la librería scipy ), compare los resultados obtenidos, aproximación, tiempo de computo, número de iteraciones, etc.</p>
-<p>Para elvaluar el tiempo de computo usted puede usar el siguiente código:</p>
-<pre><code>```python
-import time
-# Registro del tiempo de inicio
-start_time = time.time()
+<section id="iteración-del-punto-fijo" class="level2">
+<h2 class="anchored" data-anchor-id="iteración-del-punto-fijo">Iteración del punto fijo</h2>
+<p>Dado <span class="math inline">\(x_0\)</span> x inicial queremos encontrar <span class="math display">\[x_{i+1}=g(x_i)\]</span> tal que <span class="math inline">\(x_{i+1}\)</span> converja a <span class="math inline">\(x^*\)</span>.</p>
+</section>
+<section id="ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo">Ejemplo</h2>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> punto_fijo(g, x0, tol, max_iter):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... (código de punto_fijo como antes) ...</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir la función y los valores iniciales</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span> <span class="op">-</span> <span class="dv">1</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>x0_vals <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">1.5</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tol <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>max_iter <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacenar los resultados en una lista de diccionarios</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>resultados <span class="op">=</span> []</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x0 <span class="kw">in</span> x0_vals:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    raiz_aprox <span class="op">=</span> punto_fijo(g, x0, tol, max_iter)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> raiz_aprox <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        resultados.append({</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Valor Inicial"</span>: x0,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Aproximación de la Raíz"</span>: raiz_aprox</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        resultados.append({</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Valor Inicial"</span>: x0,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Aproximación de la Raíz"</span>: <span class="st">"No convergió"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame a partir de la lista de resultados</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>df_resultados <span class="op">=</span> pd.DataFrame(resultados)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el DataFrame</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_resultados)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x y'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir las funciones</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>func1 <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>func2 <span class="op">=</span> x</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar las funciones usando sp.plot</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> sp.plot(func1, (x, <span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>), line_color<span class="op">=</span><span class="st">'blue'</span>, show<span class="op">=</span><span class="va">False</span>, label<span class="op">=</span><span class="st">'x^2'</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> sp.plot(func2, (x, <span class="op">-</span><span class="dv">1</span>,<span class="dv">5</span>), line_color<span class="op">=</span><span class="st">'red'</span>, show<span class="op">=</span><span class="va">False</span>, label<span class="op">=</span><span class="st">'x'</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Personalizar el gráfico</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>p1.extend(p2)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>p1.xlabel <span class="op">=</span> <span class="st">'x'</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>p1.ylabel <span class="op">=</span> <span class="st">'y'</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>p1.title <span class="op">=</span> <span class="st">'Note que la figura tiene un punto fijo'</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>p1.legend <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>p1.ylim <span class="op">=</span> (<span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>p1.show_grid <span class="op">=</span> <span class="va">True</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>IndentationError: expected an indented block after function definition on line 3 (3091621359.py, line 7)</code></pre>
+</div>
+</div>
 
-# Código de tu algoritmo
-# ...
 
-# Registro del tiempo de finalización
-end_time = time.time()
-
-# Cálculo del tiempo de ejecución
-execution_time = end_time - start_time
-
-print("Tiempo de ejecución:", execution_time, "segundos")
-```</code></pre>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->

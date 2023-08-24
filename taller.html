@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases - Cálculo numérico</title>
+<title>clases - Método de la bisección</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Cálculo numérico</h1>
+      <h1 class="quarto-secondary-nav-title">Método de la bisección</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Cálculo numérico</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Cálculo numérico</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -172,15 +173,15 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Talleres</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Talleres</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller.html" class="sidebar-item-text sidebar-link">Método de la bisección</a>
+  <a href="./taller.html" class="sidebar-item-text sidebar-link active">Método de la bisección</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,14 +211,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#taller-1-de-calculo-numérico" id="toc-taller-1-de-calculo-numérico" class="nav-link active" data-scroll-target="#taller-1-de-calculo-numérico">Taller 1 de calculo numérico</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Cálculo numérico</h1>
+<h1 class="title d-none d-lg-block">Método de la bisección</h1>
 </div>
 
 
@@ -232,9 +239,27 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Aqui nosotros presentaremos los apuntes de algunos métodos numéricos que se utilizan en la Ingenería. Los métodos numéricos son una herramienta muy útil para resolver problemas que no tienen solución analítica o que son muy complicados de resolver analíticamente.</p>
+<section id="taller-1-de-calculo-numérico" class="level1">
+<h1>Taller 1 de calculo numérico</h1>
+<p>Debe hacer los primeros ejercicios de la guía de calculo numérico para entregar a las 1:00 pm del 15 de agosto de 2020. El taller debe ser entregado en un archivo .ipynb. El taller debe ser realizado en grupos de máximo 3 personas. En el archivo .ipynb debe estar el nombre de los integrantes del grupo.</p>
+<p>Una simplificación del modelo de suspensión de un automóvil consiste en una masa, un resorte con rigidez <span class="math inline">\(k\)</span> y con coeficiente de amortiguamiento <span class="math inline">\(c\)</span>, como se muestra en la figura. Un carretera llena de huecos se puede modelar mediante un movimiento sinusoidal hacia arriba y hacia abajo de la rueda. <span class="math inline">\(y=Y\sin(\omega t)\)</span>. A partir de la solución de la ecuación de movimiento para este modelo, el movimiento de arriba y abajo del automóvil (masa) está dado por <span class="math inline">\(x=X\sin(\omega t - \phi)\)</span>. La relación entre la amplitud <span class="math inline">\(X\)</span> y la amplitud <span class="math inline">\(Y\)</span> está dada por: <img src="figures/taller.png" class="img-fluid" alt="figura"></p>
+<p><span class="math display">\[\frac{X}{Y}=\sqrt{\frac{\omega^2c+k}{(k-m\omega^2)+(c\omega)^2}}\]</span></p>
+<p>Asumiendo que <span class="math inline">\(m=2500 kg\)</span>, <span class="math inline">\(k=300kH/m\)</span> y <span class="math inline">\(c=36\times 10^3 Ns/m\)</span>, determine la frecuencia <span class="math inline">\(\omega\)</span> para la cual la relación <span class="math inline">\(X/Y=0.4\)</span>.</p>
+<ul>
+<li>solucione la ecuaicón anterior para <span class="math inline">\(\omega\)</span>, usando el método de Newton-Raphson, con una tolerancia de <span class="math inline">\(10^{-6}\)</span>. Encuente una condición inicial adecuada.</li>
+<li>Se puede resolver usando el método de la bisección?</li>
+<li>Reescriba la ecuación como un polinomio en términos de <span class="math inline">\(\omega\)</span></li>
+</ul>
+<p>Suponga el lector que está diseñando un tanque esférico de almacenamiento de agua para un poblado pequeño de un país en desarrollo. El volumen del líquido que puede contener se calcula con <span class="math display">\[V=\pi h^2\frac{3R-h}{3}\]</span> donde <span class="math inline">\(V =\)</span> volumen <span class="math inline">\([pie^3]\)</span>, <span class="math inline">\(h =\)</span> profundidad del agua en el tanque <span class="math inline">\([pies]\)</span>, y <span class="math inline">\(R =\)</span> radio del tanque <span class="math inline">\([pies]\)</span>. Si <span class="math inline">\(R = 3 m\)</span>, ¿a qué profundidad debe llenarse el tanque de modo que contenga <span class="math inline">\(30 m^3\)</span>? Haga tres iteraciones del método de Newton- Raphson para determinar la respuesta. Encuentre el error relativo aproximado después de cada iteración. Observe que el valor inicial de R convergerá siempre. ¿Se puede usar el método de bisección?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/taller3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">figura</figcaption><p></p>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -224,9 +224,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./newton.html" class="sidebar-item-text sidebar-link">Errores</a>
+  <a href="./newton.html" class="sidebar-item-text sidebar-link">Newton Rapshon</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  puntofixo.ipynb
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Talleres</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./taller.html" class="sidebar-item-text sidebar-link">Método de la bisección</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  taller_reumen.ipynb
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
       </ul>
   </li>
     </ul>
@@ -297,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Ejercicio 2:</h1>
 <p>Implemente el método de la bisección para encontrar la raíz de la función <span class="math inline">\(f(x)=x^3-2x^2+3x-1\)</span> en el intervalo <span class="math inline">\([0,1]\)</span> y genere una tabla como la siguiente</p>
 <p>Iteración | <span class="math inline">\(a_n\)</span> | <span class="math inline">\(b_n\)</span> | <span class="math inline">\(p_n\)</span> | <span class="math inline">\(f(p_n)\)</span> | <span class="math inline">\(Error_{absoluto}\)</span> |<span class="math inline">\(Error_{relativo}\)</span>|</p>
-<div class="cell">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Método de la bisección</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
