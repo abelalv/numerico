@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases - Método de la bisección</title>
+<title>clases – taller_entrega</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Método de la bisección</h1>
+      <h1 class="quarto-secondary-nav-title">clases</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -236,15 +236,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Talleres</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Talleres</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller.html" class="sidebar-item-text sidebar-link active">Método de la bisección</a>
+  <a href="./taller.html" class="sidebar-item-text sidebar-link">Método de la bisección</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -278,100 +278,159 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#taller-1-de-calculo-numérico" id="toc-taller-1-de-calculo-numérico" class="nav-link active" data-scroll-target="#taller-1-de-calculo-numérico">Taller 1 de calculo numérico</a></li>
+  <li><a href="#taller-de-métodos-numericos" id="toc-taller-de-métodos-numericos" class="nav-link active" data-scroll-target="#taller-de-métodos-numericos">Taller de Métodos Numericos</a>
+  <ul class="collapse">
+  <li><a href="#modelo-de-crecimiento-tumoral" id="toc-modelo-de-crecimiento-tumoral" class="nav-link" data-scroll-target="#modelo-de-crecimiento-tumoral">Modelo de Crecimiento Tumoral</a></li>
+  </ul></li>
+  <li><a href="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" id="toc-problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="nav-link" data-scroll-target="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento">Problema de Modelado del Crecimiento Tumoral con Tratamiento</a>
+  <ul class="collapse">
+  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
+  </ul></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#modelo-matemático" id="toc-modelo-matemático" class="nav-link" data-scroll-target="#modelo-matemático">Modelo Matemático</a></li>
+  <li><a href="#ejemplo-de-funciones-mut-y-betat" id="toc-ejemplo-de-funciones-mut-y-betat" class="nav-link" data-scroll-target="#ejemplo-de-funciones-mut-y-betat">Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></a></li>
+  <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Método de la bisección</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="taller-1-de-calculo-numérico" class="level1">
-<h1>Taller 1 de calculo numérico</h1>
-<p>Debe hacer los primeros ejercicios de la guía de calculo numérico para entregar a las 1:00 pm del 15 de agosto de 2020. El taller debe ser entregado en un archivo .ipynb. El taller debe ser realizado en grupos de máximo 3 personas. En el archivo .ipynb debe estar el nombre de los integrantes del grupo.</p>
-<p>Una simplificación del modelo de suspensión de un automóvil consiste en una masa, un resorte con rigidez <span class="math inline">\(k\)</span> y con coeficiente de amortiguamiento <span class="math inline">\(c\)</span>, como se muestra en la figura. Un carretera llena de huecos se puede modelar mediante un movimiento sinusoidal hacia arriba y hacia abajo de la rueda. <span class="math inline">\(y=Y\sin(\omega t)\)</span>. A partir de la solución de la ecuación de movimiento para este modelo, el movimiento de arriba y abajo del automóvil (masa) está dado por <span class="math inline">\(x=X\sin(\omega t - \phi)\)</span>. La relación entre la amplitud <span class="math inline">\(X\)</span> y la amplitud <span class="math inline">\(Y\)</span> está dada por: <img src="figures/taller.png" class="img-fluid" alt="figura"></p>
-<p><span class="math display">\[\frac{X}{Y}=\sqrt{\frac{\omega^2c+k}{(k-m\omega^2)+(c\omega)^2}}\]</span></p>
-<p>Asumiendo que <span class="math inline">\(m=2500 kg\)</span>, <span class="math inline">\(k=300kH/m\)</span> y <span class="math inline">\(c=36\times 10^3 Ns/m\)</span>, determine la frecuencia <span class="math inline">\(\omega\)</span> para la cual la relación <span class="math inline">\(X/Y=0.4\)</span>.</p>
+<section id="taller-de-métodos-numericos" class="level1">
+<h1>Taller de Métodos Numericos</h1>
+<section id="modelo-de-crecimiento-tumoral" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-de-crecimiento-tumoral">Modelo de Crecimiento Tumoral</h2>
+<p>Imagina que estás trabajando en un proyecto de biomatemática para estudiar el crecimiento de tumores cancerosos en un órgano específico del cuerpo. Para modelar el crecimiento del tumor en función del tiempo, utilizas el modelo de Gompertz, que se expresa de la siguiente manera:</p>
+<p><span class="math display">\[V(t)=V_0⋅e^{e^{(r⋅(T−t)+1)}}\]</span></p>
+<p>Donde:</p>
 <ul>
-<li>solucione la ecuaicón anterior para <span class="math inline">\(\omega\)</span>, usando el método de Newton-Raphson, con una tolerancia de <span class="math inline">\(10^{-6}\)</span>. Encuente una condición inicial adecuada.</li>
-<li>Se puede resolver usando el método de la bisección?</li>
-<li>Reescriba la ecuación como un polinomio en términos de <span class="math inline">\(\omega\)</span></li>
+<li><p><span class="math inline">\(V(t)\)</span> es el volumen del tumor en función del tiempo <span class="math inline">\(t\)</span>.</p></li>
+<li><p><span class="math inline">\(V_0\)</span> es el volumen inicial del tumor en <span class="math inline">\(t=0\)</span>.</p></li>
+<li><p><span class="math inline">\(r\)</span> es la tasa de crecimiento del tumor.</p></li>
+<li><p><span class="math inline">\(T\)</span> es el tiempo en el que se detendría el crecimiento si no hubiera limitaciones.</p></li>
 </ul>
-<p>Suponga el lector que está diseñando un tanque esférico de almacenamiento de agua para un poblado pequeño de un país en desarrollo. El volumen del líquido que puede contener se calcula con <span class="math display">\[V=\pi h^2\frac{3R-h}{3}\]</span> donde <span class="math inline">\(V =\)</span> volumen <span class="math inline">\([pie^3]\)</span>, <span class="math inline">\(h =\)</span> profundidad del agua en el tanque <span class="math inline">\([pies]\)</span>, y <span class="math inline">\(R =\)</span> radio del tanque <span class="math inline">\([pies]\)</span>. Si <span class="math inline">\(R = 3 m\)</span>, ¿a qué profundidad debe llenarse el tanque de modo que contenga <span class="math inline">\(30 m^3\)</span>? Haga tres iteraciones del método de Newton- Raphson para determinar la respuesta. Encuentre el error relativo aproximado después de cada iteración. Observe que el valor inicial de R convergerá siempre. ¿Se puede usar el método de bisección?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/taller3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">figura</figcaption><p></p>
-</figure>
-</div>
-<div class="cell" data-execution_count="1">
+<p>Tu objetivo es determinar el valor de <span class="math inline">\(T\)</span> para el cual el volumen del tumor alcanza un tamaño crítico o se estabiliza. En otras palabras, necesitas encontrar el valor de <span class="math inline">\(T\)</span> para el cual <span class="math inline">\(V(T)\)</span> es igual a un valor específico, como VcVc, que podría representar un umbral crítico o el tamaño de tumor objetivo.</p>
+</section>
+</section>
+<section id="problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="level1">
+<h1>Problema de Modelado del Crecimiento Tumoral con Tratamiento</h1>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Estás trabajando en un proyecto de investigación biomatemática centrado en el crecimiento de un tumor maligno en un paciente con cáncer. Tu objetivo es modelar cómo evoluciona el tumor en respuesta a un tratamiento que varía con el tiempo. Utilizarás un modelo de crecimiento tumoral más complejo, el modelo de crecimiento tumoral con tratamiento, que involucra tasas de crecimiento variables y la administración de un tratamiento.</p>
+<ul>
+<li>En el momento <span class="math inline">\(t = 0\)</span>, el volumen del tumor <span class="math inline">\(V\)</span> es de <span class="math inline">\(1 cm^3\)</span>.</li>
+<li>La tasa de crecimiento máxima del tumor, <span class="math inline">\(\mu(t)\)</span>, varía con el tiempo.</li>
+<li>La constante que controla la velocidad de disminución en la tasa de crecimiento, <span class="math inline">\(\alpha\)</span>, es igual a 0.01.</li>
+<li>La tasa de reducción del tumor debido al tratamiento, <span class="math inline">\(\beta(t)\)</span>, también varía con el tiempo.</li>
+</ul>
+</section>
+</section>
+<section id="objetivo" class="level1">
+<h1>Objetivo</h1>
+<p>Deseas encontrar el tiempo <span class="math inline">\(t\)</span> en el que el volumen del tumor alcance un valor específico <span class="math inline">\(V_0\)</span>, que en este caso es de <span class="math inline">\(2 cm^2\)</span>, teniendo en cuenta la variabilidad en las tasas de crecimiento y la administración del tratamiento a lo largo del tiempo.</p>
+</section>
+<section id="modelo-matemático" class="level1">
+<h1>Modelo Matemático</h1>
+<p>El modelo de crecimiento tumoral con tratamiento se describe mediante la siguiente ecuación diferencial ordinaria (EDO): <span class="math display">\[\frac{dV}{dt} = \mu(t) V \exp(-\alpha t) - \beta(t) V\]</span> <span class="math display">\[\frac{dV}{dt} = \Big(\mu(t)  \exp(-\alpha t) - \beta(t) \Big)V\]</span></p>
+<p><strong>Recuerde</strong> si una ecuación diferecial tiene la forma: <span class="math display">\[\frac{dy}{dx} = f(x)g(y)\]</span> entonces la solución analítica es: <span class="math display">\[\int \frac{1}{g(y)} dy = \int f(x) dx\]</span></p>
+<p>Donde: + <span class="math inline">\(\frac{dV}{dt}\)</span> es la tasa de cambio del volumen del tumor con respecto al tiempo. + <span class="math inline">\(V\)</span> es el volumen del tumor en un momento dado. + <span class="math inline">\(\mu(t)\)</span> es una función que representa la tasa de crecimiento del tumor en función del tiempo <span class="math inline">\(t\)</span>. + <span class="math inline">\(\alpha\)</span> es una constante que controla la velocidad de disminución en la tasa de crecimiento con el tiempo. + <span class="math inline">\(\beta(t)\)</span> es una función que representa la tasa de reducción del tumor debido al tratamiento en función del tiempo <span class="math inline">\(t\)</span>.</p>
+</section>
+<section id="ejemplo-de-funciones-mut-y-betat" class="level1">
+<h1>Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></h1>
+<p>Puedes utilizar ejemplos simplificados para estas funciones. Por ejemplo:</p>
+<p><span class="math display">\[\mu(t) =
+\begin{cases}
+0.05, &amp; \text{si } t &lt; 30 \text{ días} \\
+0.02, &amp; \text{si } t \geq 30 \text{ días}
+\end{cases}\]</span></p>
+<p><span class="math display">\[\beta(t) =
+\begin{cases}
+0, &amp; \text{si } t &lt; 15 \text{ días} \\
+0.04, &amp; \text{si } 15 \text{ días} \leq t &lt; 60 \text{ días} \\
+0.02, &amp; \text{si } t \geq 60 \text{ días}
+\end{cases}\]</span></p>
+</section>
+<section id="problema" class="level1">
+<h1>Problema</h1>
+<ol type="1">
+<li>Plantee la solución analítica de la anterior ecuación diferencial.</li>
+<li>¿Con las funciones anteriores encuentre una aproximación del valor <span class="math inline">\(t\)</span> en que la tasa del volumen del tumor sea <span class="math inline">\(10^{-2}\)</span>?</li>
+<li>¿Cuándo se espera que el volumen del tumor alcanza 1 <span class="math inline">\(cm^3\)</span> en función de las tasas de crecimiento y reducción proporcionadas por las funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span>?</li>
+<li>Si suspende el tratamiento entonces <span class="math inline">\(\alpha=-0.1\)</span> y <span class="math inline">\(\beta(t)=0\)</span>, ¿cuándo se espera que el volumen del tumor alcance 17.5 <span class="math inline">\(cm^3\)</span>?</li>
+</ol>
+<div class="cell" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LU(A):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> A.shape[<span class="dv">0</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> np.eye(n)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> A.copy()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">-</span> <span class="dv">1</span>):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        L[i<span class="op">+</span><span class="dv">1</span>:, i] <span class="op">=</span> U[i<span class="op">+</span><span class="dv">1</span>:, i] <span class="op">/</span> U[i, i]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        U[i<span class="op">+</span><span class="dv">1</span>:, i:] <span class="op">-=</span> np.outer(L[i<span class="op">+</span><span class="dv">1</span>:, i], U[i, i:])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> L, U</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de uso</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>],</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">7</span>],</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">9</span>]], dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>L, U <span class="op">=</span> LU(A)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matriz A:"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Matriz L:"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(L)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Matriz U:"</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(U)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos que la descomposición LU sea correcta</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>reconstruida <span class="op">=</span> np.dot(L, U)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Matriz L * Matriz U (Reconstruida):"</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reconstruida)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Matriz A:
-[[2. 3. 1.]
- [4. 7. 7.]
- [4. 8. 9.]]
-
-Matriz L:
-[[1. 0. 0.]
- [2. 1. 0.]
- [2. 2. 1.]]
-
-Matriz U:
-[[ 2.  3.  1.]
- [ 0.  1.  5.]
- [ 0.  0. -3.]]
-
-Matriz L * Matriz U (Reconstruida):
-[[2. 3. 1.]
- [4. 7. 7.]
- [4. 8. 9.]]</code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> beta(t):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    condiciones <span class="op">=</span> [t <span class="op">&lt;</span> <span class="dv">30</span>, t <span class="op">&gt;=</span> <span class="dv">30</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    expresiones <span class="op">=</span> [<span class="fl">0.05</span>, <span class="fl">0.02</span>]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    resultado <span class="op">=</span> np.piecewise(t, condiciones, expresiones)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultado</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mu(t):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    condiciones <span class="op">=</span> [t <span class="op">&lt;</span> <span class="dv">15</span>, (t <span class="op">&gt;=</span> <span class="dv">15</span>) <span class="op">&amp;</span> (t <span class="op">&lt;</span> <span class="dv">60</span>),t <span class="op">&gt;=</span> <span class="dv">60</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    expresiones <span class="op">=</span> [<span class="dv">0</span>,<span class="fl">0.04</span>, <span class="fl">0.02</span>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    resultado <span class="op">=</span> np.piecewise(t, condiciones, expresiones)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultado</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mu(t)<span class="op">*</span>np.exp(<span class="op">-</span>alpha<span class="op">*</span>t)<span class="op">-</span>beta(t)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(t):</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=-</span>(mu(t)<span class="op">/</span>alpha)<span class="op">*</span>np.exp(<span class="op">-</span>alpha<span class="op">*</span>t)<span class="op">-</span>beta(t)<span class="op">*</span>t</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>np.exp(z)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>alpha<span class="op">=</span><span class="fl">0.1</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> h(t):</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span>(mu(t)<span class="op">/</span>alpha)<span class="op">*</span>np.exp(alpha<span class="op">*</span>t)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">*</span>np.exp(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tspan <span class="op">=</span> np.linspace(<span class="dv">00</span>, <span class="dv">20</span>, <span class="dv">10000</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(tspan, f(tspan))</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(tspan, g(tspan))</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.plot(tspan, h(tspan))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="taller_entrega_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define las variables simbólicas</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t, a, b,m <span class="op">=</span> sp.symbols(<span class="st">'t a b m'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>funcion <span class="op">=</span> m<span class="op">*</span>sp.exp(<span class="op">-</span><span class="fl">0.01</span><span class="op">*</span>t)<span class="op">-</span>b</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Realiza la integral indefinida de la función</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>sp.integrate(funcion, t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<p><span class="math inline">\(\displaystyle - b t - 100.0 m e^{- 0.01 t}\)</span></p>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define la variable dependiente y(t)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">'y'</span>)(t)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define la ecuación diferencial de Gompertz</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ecuacion_diferencial <span class="op">=</span> sp.Eq(y.diff(t), y<span class="op">*</span>(m<span class="op">*</span>sp.exp(<span class="op">-</span><span class="fl">0.01</span><span class="op">*</span>t)<span class="op">-</span>b))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Resuelve la ecuación diferencial</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>sp.dsolve(ecuacion_diferencial, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<p><span class="math inline">\(\displaystyle y{\left(t \right)} = C_{1} e^{- 100.0 b \log{\left(e^{0.01 t} \right)} - \frac{100.0 m}{\left(e^{0.01 t}\right)^{1.0}}}\)</span></p>
 </div>
 </div>
 
