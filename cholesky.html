@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases – taller1</title>
+<title>clases – cholesky</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -256,12 +193,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
@@ -274,7 +211,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cholesky.html" class="sidebar-item-text sidebar-link">Definición</a>
+  <a href="./cholesky.html" class="sidebar-item-text sidebar-link active">Cholesky</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gauss-seidel.html" class="sidebar-item-text sidebar-link">Gauss-Seidel</a>
   </div>
 </li>
       </ul>
@@ -288,14 +230,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" id="toc-problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="nav-link active" data-scroll-target="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento">Problema de Modelado del Crecimiento Tumoral con Tratamiento</a>
+  <li><a href="#cholesky" id="toc-cholesky" class="nav-link active" data-scroll-target="#cholesky">Cholesky</a>
   <ul class="collapse">
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#algoritmo" id="toc-algoritmo" class="nav-link" data-scroll-target="#algoritmo">Algoritmo</a></li>
+  <li><a href="#algoritmo-de-cholesky" id="toc-algoritmo-de-cholesky" class="nav-link" data-scroll-target="#algoritmo-de-cholesky">Algoritmo de Cholesky</a></li>
   </ul></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#modelo-matemático" id="toc-modelo-matemático" class="nav-link" data-scroll-target="#modelo-matemático">Modelo Matemático</a></li>
-  <li><a href="#ejemplo-de-funciones-mut-y-betat" id="toc-ejemplo-de-funciones-mut-y-betat" class="nav-link" data-scroll-target="#ejemplo-de-funciones-mut-y-betat">Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></a></li>
-  <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul>
 </nav>
     </div>
@@ -304,58 +247,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="level1">
-<h1>Problema de Modelado del Crecimiento Tumoral con Tratamiento</h1>
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Estás trabajando en un proyecto de investigación biomatemática centrado en el crecimiento de un tumor maligno en un paciente con cáncer. Tu objetivo es modelar cómo evoluciona el tumor en respuesta a un tratamiento que varía con el tiempo. Utilizarás un modelo de crecimiento tumoral más complejo, el modelo de crecimiento tumoral con tratamiento, que involucra tasas de crecimiento variables y la administración de un tratamiento.</p>
+<section id="cholesky" class="level1">
+<h1>Cholesky</h1>
+<section id="definición" class="level2">
+<h2 class="anchored" data-anchor-id="definición">Definición</h2>
+<p>Una matriz <span class="math inline">\(A\)</span> es definida positiva si <span class="math inline">\(x^TAx &gt; 0\)</span> para todo <span class="math inline">\(x \neq 0\)</span>.</p>
+</section>
+<section id="propiedades" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades">Propiedades</h2>
 <ul>
-<li>En el momento <span class="math inline">\(t = 0\)</span>, el volumen del tumor <span class="math inline">\(V\)</span> es de <span class="math inline">\(1 cm^3\)</span>.</li>
-<li>La tasa de crecimiento máxima del tumor, <span class="math inline">\(\mu(t)\)</span>, varía con el tiempo.</li>
-<li>La constante que controla la velocidad de disminución en la tasa de crecimiento, <span class="math inline">\(\alpha\)</span>, es igual a 0.01.</li>
-<li>La tasa de reducción del tumor debido al tratamiento, <span class="math inline">\(\beta(t)\)</span>, también varía con el tiempo.</li>
+<li>Una matriz definida positiva es simétrica.</li>
+<li>Una matriz definida positiva tiene todos sus valores propios positivos.</li>
+<li>Una matriz definida positiva tiene todos sus menores principales positivos.</li>
 </ul>
 </section>
+<section id="ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo">Ejemplo</h2>
+<p>La matriz <span class="math inline">\(A = \begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 5 \end{bmatrix}\)</span> es definida positiva.</p>
 </section>
-<section id="objetivo" class="level1">
-<h1>Objetivo</h1>
-<p>Deseas encontrar el tiempo <span class="math inline">\(t\)</span> en el que el volumen del tumor alcance un valor específico <span class="math inline">\(V_0\)</span>, que en este caso es de <span class="math inline">\(2 cm^2\)</span>, teniendo en cuenta la variabilidad en las tasas de crecimiento y la administración del tratamiento a lo largo del tiempo.</p>
+<section id="algoritmo" class="level2">
+<h2 class="anchored" data-anchor-id="algoritmo">Algoritmo</h2>
+<p>El algoritmo de Cholesky es un método para calcular la factorización de Cholesky de una matriz definida positiva.</p>
+<p>Sea <span class="math inline">\(A\)</span> una matriz simetrica definida positiva de orden <span class="math inline">\(n\)</span>. Entonces, existe una matriz triangular inferior <span class="math inline">\(G\)</span> con elementos reales positivos en la diagonal tal que <span class="math inline">\(A = GG^T\)</span>. Para encontrar <span class="math inline">\(G\)</span>, se procede de la siguiente manera:</p>
+<p>Sea la matriz <span class="math display">\[G=\begin{bmatrix} g_{11} &amp; 0 &amp; \cdots &amp; 0 \\ g_{21} &amp; g_{22} &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ g_{n1} &amp; g_{n2} &amp; \cdots &amp; g_{nn} \end{bmatrix}\]</span></p>
+<p>Entonces, <span class="math inline">\(A = GG^T\)</span> implica que</p>
+<p><span class="math display">\[\begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \end{bmatrix} = \begin{bmatrix} g_{11}^2 &amp; g_{11}g_{21} &amp; \cdots &amp; g_{11}g_{n1} \\ g_{11}g_{21} &amp; g_{21}^2 + g_{22}^2 &amp; \cdots &amp; g_{21}g_{n1} + g_{22}g_{n2} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ g_{11}g_{n1} &amp; g_{21}g_{n1} + g_{22}g_{n2} &amp; \cdots &amp; g_{n1}^2 + g_{n2}^2 + \cdots + g_{nn}^2 \end{bmatrix}\]</span></p>
+<p>de esta forma tenemos que</p>
+<p><span class="math display">\[g_{11}^2 = a_{11} \Rightarrow g_{11} = \sqrt{a_{11}}\]</span> <span class="math display">\[g_{11}g_{21} = a_{12} \Rightarrow g_{21} = \frac{a_{12}}{g_{11}}\]</span></p>
+<p><span class="math display">\[\vdots\]</span></p>
+<p><span class="math display">\[g_{11}g_{n1} = a_{1n} \Rightarrow g_{n1} = \frac{a_{1n}}{g_{11}}\]</span></p>
+<p>Ahora debemos calcular los elementos de la segunda fila de <span class="math inline">\(G\)</span>.</p>
+<p><span class="math display">\[g_{21}^2 + g_{22}^2 = a_{22} \Rightarrow g_{22} = \sqrt{a_{22} - g_{21}^2}\]</span></p>
+<p><span class="math display">\[g_{21}g_{n1} + g_{22}g_{n2} = a_{2n} \Rightarrow g_{n2} = \frac{a_{2n} - g_{21}g_{n1}}{g_{22}}\]</span></p>
+<p><strong>Ventajas dela algoritmod e Cholesky</strong></p>
+<ul>
+<li>El algoritmo de Cholesky es una técnica importante en álgebra lineal numérica.</li>
+<li>Se utiliza para factorizar una matriz simétrica definida positiva en el producto de una matriz triangular inferior y su traspuesta.</li>
+<li>Esta factorización tiene aplicaciones en la resolución de sistemas de ecuaciones lineales y la estimación de covarianzas en estadísticas.</li>
+<li>El algoritmo de Cholesky es aproximadamente el doble de eficiente que la eliminación gaussiana para resolver sistemas de ecuaciones lineales.</li>
+<li>También es más estable numéricamente.</li>
+</ul>
 </section>
-<section id="modelo-matemático" class="level1">
-<h1>Modelo Matemático</h1>
-<p>El modelo de crecimiento tumoral con tratamiento se describe mediante la siguiente ecuación diferencial ordinaria (EDO): <span class="math display">\[\frac{dV}{dt} = \mu(t) V \exp(-\alpha t) - \beta(t) V\]</span> <span class="math display">\[\frac{dV}{dt} = \Big(\mu(t)  \exp(-\alpha t) - \beta(t) \Big)V\]</span></p>
-<p><strong>Recuerde</strong> si una ecuación diferecial tiene la forma: <span class="math display">\[\frac{dy}{dx} = f(x)g(y)\]</span> entonces la solución analítica es: <span class="math display">\[\int \frac{1}{g(y)} dy = \int f(x) dx\]</span></p>
-<p>Donde: + <span class="math inline">\(\frac{dV}{dt}\)</span> es la tasa de cambio del volumen del tumor con respecto al tiempo. + <span class="math inline">\(V\)</span> es el volumen del tumor en un momento dado. + <span class="math inline">\(\mu(t)\)</span> es una función que representa la tasa de crecimiento del tumor en función del tiempo <span class="math inline">\(t\)</span>. + <span class="math inline">\(\alpha\)</span> es una constante que controla la velocidad de disminución en la tasa de crecimiento con el tiempo. + <span class="math inline">\(\beta(t)\)</span> es una función que representa la tasa de reducción del tumor debido al tratamiento en función del tiempo <span class="math inline">\(t\)</span>.</p>
+<section id="algoritmo-de-cholesky" class="level2">
+<h2 class="anchored" data-anchor-id="algoritmo-de-cholesky">Algoritmo de Cholesky</h2>
+<p>import numpy as np</p>
+<p>def cholesky_decomposition(A): n = len(A) L = np.zeros_like(A)</p>
+<pre><code>for i in range(n):
+    for j in range(i + 1):
+        if i == j:
+            temp = A[i, i] - np.sum(L[i, :i] ** 2)
+            L[i, i] = np.sqrt(temp) if temp &gt; 0 else 0.0
+        else:
+            L[i, j] = (A[i, j] - np.sum(L[i, :j] * L[j, :j])) / L[j, j]
+
+return L</code></pre>
+<p>A = np.array([[4, 2, 2], [2, 5, 5], [2, 5, 9]]) L = cholesky_decomposition(A)</p>
 </section>
-<section id="ejemplo-de-funciones-mut-y-betat" class="level1">
-<h1>Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></h1>
-<p>Puedes utilizar ejemplos simplificados para estas funciones. Por ejemplo:</p>
-<p><span class="math display">\[\mu(t) =
-\begin{cases}
-0.05, &amp; \text{si } t &lt; 30 \text{ días} \\
-0.02, &amp; \text{si } t \geq 30 \text{ días}
-\end{cases}\]</span></p>
-<p><span class="math display">\[\beta(t) =
-\begin{cases}
-0, &amp; \text{si } t &lt; 15 \text{ días} \\
-0.04, &amp; \text{si } 15 \text{ días} \leq t &lt; 60 \text{ días} \\
-0.02, &amp; \text{si } t \geq 60 \text{ días}
-\end{cases}\]</span></p>
 </section>
-<section id="problema" class="level1">
-<h1>Problema</h1>
+<section id="ejercicios" class="level1">
+<h1>Ejercicios</h1>
 <ol type="1">
-<li>Plantee la solución analítica de la anterior ecuación diferencial.</li>
-<li>¿Con las funciones anteriores encuentre en que tiempo la tasa de crecimiento sería positiva?</li>
-<li>¿Cuándo se espera que el volumen del tumor alcanza 1.5 <span class="math inline">\(cm^3\)</span> en función de las tasas de crecimiento y reducción proporcionadas por las funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span>?</li>
-<li>Si suspende el tratamiento entonces <span class="math inline">\(\alpha=-0.1\)</span> y <span class="math inline">\(\beta(t)=0\)</span>, ¿cuándo se espera que el volumen del tumor alcance 17.5 <span class="math inline">\(cm^3\)</span>?</li>
+<li>Implementar el algoritmo de Cholesky en Python.</li>
+<li>Resulva el siguiente sistema de ecuaciones usando Cholesky</li>
 </ol>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="taller1_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
-</div>
-</div>
+<p><span class="math display">\[\begin{bmatrix} 4 &amp; 2 &amp; 2 \\ 2 &amp; 5 &amp; 5 \\ 2 &amp; 5 &amp; 9 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 2 \\ 3 \\ 5 \end{bmatrix}\]</span></p>
+<ul>
+<li>Halle el numero de condición de la matriz asociado al sistema de ecuaciones anterior.</li>
+</ul>
+<ol start="3" type="1">
+<li><p>Halle la inversa de la matriz <span class="math inline">\(A\)</span> usando Cholesky.</p></li>
+<li><p>Sea el sistema</p></li>
+</ol>
+<p><span class="math display">\[A=\begin{bmatrix} 1&amp;1&amp;1&amp;1 \\1&amp;1&amp;1&amp;2 \\ 1&amp;1&amp;2&amp;3 \\1&amp;2&amp;3&amp;4\end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \\ x_3\\x_4 \end{bmatrix} = \begin{bmatrix}1\\ 2 \\ 3 \\ 4 \end{bmatrix}\]</span> * Encuentre el número de condición de la matriz <span class="math inline">\(A\)</span>. * Encuentre la solución el sistema usando Cholesky y LU, Compare las respuestas</p>
 
 
 </section>

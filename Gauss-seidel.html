@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases – taller1</title>
+<title>clases - Jacobi y Gauss-Seidel</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">clases</h1>
+      <h1 class="quarto-secondary-nav-title">Jacobi y Gauss-Seidel</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -256,12 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
@@ -274,7 +274,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cholesky.html" class="sidebar-item-text sidebar-link">Definición</a>
+  <a href="./cholesky.html" class="sidebar-item-text sidebar-link">Cholesky</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gauss-seidel.html" class="sidebar-item-text sidebar-link active">Jacobi y Gauss-Seidel</a>
   </div>
 </li>
       </ul>
@@ -284,81 +289,121 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" id="toc-problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="nav-link active" data-scroll-target="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento">Problema de Modelado del Crecimiento Tumoral con Tratamiento</a>
-  <ul class="collapse">
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
-  </ul></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#modelo-matemático" id="toc-modelo-matemático" class="nav-link" data-scroll-target="#modelo-matemático">Modelo Matemático</a></li>
-  <li><a href="#ejemplo-de-funciones-mut-y-betat" id="toc-ejemplo-de-funciones-mut-y-betat" class="nav-link" data-scroll-target="#ejemplo-de-funciones-mut-y-betat">Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></a></li>
-  <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Jacobi y Gauss-Seidel</h1>
+</div>
 
 
-<section id="problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="level1">
-<h1>Problema de Modelado del Crecimiento Tumoral con Tratamiento</h1>
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Estás trabajando en un proyecto de investigación biomatemática centrado en el crecimiento de un tumor maligno en un paciente con cáncer. Tu objetivo es modelar cómo evoluciona el tumor en respuesta a un tratamiento que varía con el tiempo. Utilizarás un modelo de crecimiento tumoral más complejo, el modelo de crecimiento tumoral con tratamiento, que involucra tasas de crecimiento variables y la administración de un tratamiento.</p>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>El método de Gauss-Seidel es un método iterativo para resolver sistemas de ecuaciones lineales. El método consiste en despejar una variable de una ecuación y sustituirla en otra ecuación. Este proceso se repite hasta que se obtiene una solución aproximada.</p>
+<p>Para deducir el método de Gauss-Seidel, se parte de un sistema de ecuaciones lineales de la forma:</p>
+<p><span class="math display">\[Ax = b\]</span> donde la matriz <span class="math inline">\(A\)</span> es una matriz cuadrada de <span class="math inline">\(n \times n\)</span>, <span class="math inline">\(x\)</span> es un vector de <span class="math inline">\(n\)</span> elementos y <span class="math inline">\(b\)</span> es un vector de <span class="math inline">\(n\)</span> elementos. De esta forma la matriz <span class="math inline">\(A\)</span> se puede descomponer en la suma de dos matrices <span class="math inline">\(D\)</span> y <span class="math inline">\(M\)</span> de la siguiente forma:</p>
+<p><span class="math display">\[A = D + M\]</span> donde <span class="math inline">\(D\)</span> es la matriz de los elementos de la diagonal y <span class="math inline">\(M\)</span> es la matriz de los elementos que no están en la diagonal. De esta forma, el sistema de ecuaciones se puede reescribir como:</p>
+<p><span class="math display">\[Dx = b - Mx\]</span> De esta forma podemos crear un método iterativo de la forma <span class="math display">\[x^{n+1} = D^{-1}(b - Mx^n)\]</span></p>
+<p><strong>El método de Jacobi</strong> es una generalización del método del punto fijo. Los críterios de convergencia de este método es</p>
 <ul>
-<li>En el momento <span class="math inline">\(t = 0\)</span>, el volumen del tumor <span class="math inline">\(V\)</span> es de <span class="math inline">\(1 cm^3\)</span>.</li>
-<li>La tasa de crecimiento máxima del tumor, <span class="math inline">\(\mu(t)\)</span>, varía con el tiempo.</li>
-<li>La constante que controla la velocidad de disminución en la tasa de crecimiento, <span class="math inline">\(\alpha\)</span>, es igual a 0.01.</li>
-<li>La tasa de reducción del tumor debido al tratamiento, <span class="math inline">\(\beta(t)\)</span>, también varía con el tiempo.</li>
+<li><p>La matriz <span class="math inline">\(A\)</span> debe ser diagonal dominante, es decir, que el valor absoluto de la diagonal debe ser mayor que la suma de los valores absolutos de los elementos de la fila. <span class="math display">\[|a_{ii}| &gt; \sum_{j=1, j \neq i}^{n} |a_{ij}|\]</span></p></li>
+<li><p>Se debe dar un valor inicial <span class="math inline">\(x_0\)</span> ,adecuado.</p></li>
 </ul>
-</section>
-</section>
-<section id="objetivo" class="level1">
-<h1>Objetivo</h1>
-<p>Deseas encontrar el tiempo <span class="math inline">\(t\)</span> en el que el volumen del tumor alcance un valor específico <span class="math inline">\(V_0\)</span>, que en este caso es de <span class="math inline">\(2 cm^2\)</span>, teniendo en cuenta la variabilidad en las tasas de crecimiento y la administración del tratamiento a lo largo del tiempo.</p>
-</section>
-<section id="modelo-matemático" class="level1">
-<h1>Modelo Matemático</h1>
-<p>El modelo de crecimiento tumoral con tratamiento se describe mediante la siguiente ecuación diferencial ordinaria (EDO): <span class="math display">\[\frac{dV}{dt} = \mu(t) V \exp(-\alpha t) - \beta(t) V\]</span> <span class="math display">\[\frac{dV}{dt} = \Big(\mu(t)  \exp(-\alpha t) - \beta(t) \Big)V\]</span></p>
-<p><strong>Recuerde</strong> si una ecuación diferecial tiene la forma: <span class="math display">\[\frac{dy}{dx} = f(x)g(y)\]</span> entonces la solución analítica es: <span class="math display">\[\int \frac{1}{g(y)} dy = \int f(x) dx\]</span></p>
-<p>Donde: + <span class="math inline">\(\frac{dV}{dt}\)</span> es la tasa de cambio del volumen del tumor con respecto al tiempo. + <span class="math inline">\(V\)</span> es el volumen del tumor en un momento dado. + <span class="math inline">\(\mu(t)\)</span> es una función que representa la tasa de crecimiento del tumor en función del tiempo <span class="math inline">\(t\)</span>. + <span class="math inline">\(\alpha\)</span> es una constante que controla la velocidad de disminución en la tasa de crecimiento con el tiempo. + <span class="math inline">\(\beta(t)\)</span> es una función que representa la tasa de reducción del tumor debido al tratamiento en función del tiempo <span class="math inline">\(t\)</span>.</p>
-</section>
-<section id="ejemplo-de-funciones-mut-y-betat" class="level1">
-<h1>Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></h1>
-<p>Puedes utilizar ejemplos simplificados para estas funciones. Por ejemplo:</p>
-<p><span class="math display">\[\mu(t) =
-\begin{cases}
-0.05, &amp; \text{si } t &lt; 30 \text{ días} \\
-0.02, &amp; \text{si } t \geq 30 \text{ días}
-\end{cases}\]</span></p>
-<p><span class="math display">\[\beta(t) =
-\begin{cases}
-0, &amp; \text{si } t &lt; 15 \text{ días} \\
-0.04, &amp; \text{si } 15 \text{ días} \leq t &lt; 60 \text{ días} \\
-0.02, &amp; \text{si } t \geq 60 \text{ días}
-\end{cases}\]</span></p>
-</section>
-<section id="problema" class="level1">
-<h1>Problema</h1>
-<ol type="1">
-<li>Plantee la solución analítica de la anterior ecuación diferencial.</li>
-<li>¿Con las funciones anteriores encuentre en que tiempo la tasa de crecimiento sería positiva?</li>
-<li>¿Cuándo se espera que el volumen del tumor alcanza 1.5 <span class="math inline">\(cm^3\)</span> en función de las tasas de crecimiento y reducción proporcionadas por las funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span>?</li>
-<li>Si suspende el tratamiento entonces <span class="math inline">\(\alpha=-0.1\)</span> y <span class="math inline">\(\beta(t)=0\)</span>, ¿cuándo se espera que el volumen del tumor alcance 17.5 <span class="math inline">\(cm^3\)</span>?</li>
-</ol>
+<p><strong>Pseudocódigo</strong></p>
+<p>Función Jacobi(A, b, x0, tol, max_iter)</p>
+<pre><code>n = longitud(b)
+
+x = copiar(x0)
+
+iter = 0
+
+mientras iter &lt; max_iter
+    iter = iter + 1
+    nuevo_x = vector(n)
+    
+    para i desde 0 hasta n-1
+        suma = 0
+        para j desde 0 hasta n-1
+            si j ≠ i
+                suma = suma + A[i][j] * x[j]
+            fin si
+        fin para
+        nuevo_x[i] = (b[i] - suma) / A[i][i]
+    fin para
+    
+    si convergencia(x, nuevo_x, tol)
+        devolver nuevo_x
+    fin si
+    
+    x = copiar(nuevo_x)
+fin mientras
+
+devolver "No se alcanzó la convergencia después de max_iter iteraciones"</code></pre>
+<p>Fin</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="taller1_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> jacobi(A, b, x0, tol, max_iter):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(b)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x0.copy()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    iter_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> iter_count <span class="op">&lt;</span> max_iter:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        iter_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        new_x <span class="op">=</span> np.zeros(n)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            sum_ <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> j <span class="op">!=</span> i:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                    sum_ <span class="op">+=</span> A[i][j] <span class="op">*</span> x[j]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            new_x[i] <span class="op">=</span> (b[i] <span class="op">-</span> sum_) <span class="op">/</span> A[i][i]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Comprobar convergencia</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.<span class="bu">all</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> new_x) <span class="op">&lt;</span> tol):</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> new_x</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> new_x.copy()</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"El método de Jacobi no convergió después de </span><span class="sc">{}</span><span class="st"> iteraciones."</span>.<span class="bu">format</span>(max_iter))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de coeficientes A y vector de términos constantes b</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">3</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>],</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>]])</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>])</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimación inicial</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Tolerancia y número máximo de iteraciones</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>tolerancia <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>max_iteraciones <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamada a la función para resolver el sistema</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>solucion <span class="op">=</span> jacobi(A, b, x0, tolerancia, max_iteraciones)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir la solución</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La solución aproximada es:"</span>, solucion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La solución aproximada es: [0.38297877 0.89361697 1.04255282]</code></pre>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

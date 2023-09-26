@@ -272,6 +272,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./sistemas.html" class="sidebar-item-text sidebar-link active">Solución de sistemas de ecuaciones lineales</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cholesky.html" class="sidebar-item-text sidebar-link">Cholesky</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Gauss-seidel.html" class="sidebar-item-text sidebar-link">Gauss-Seidel</a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -295,6 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
   </ul></li>
+  <li><a href="#número-de-condición-de-una-matriz" id="toc-número-de-condición-de-una-matriz" class="nav-link" data-scroll-target="#número-de-condición-de-una-matriz">Número de condición de una matriz</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -557,11 +568,45 @@ e.  Observe las soluciones anteriores, realice una comparación entre ellas ¿Qu
 <li><p>Resuelva el sistema usando Cholescky y compruebe su respuesta</p></li>
 <li><p>resuelva el sistema usando LU y compruebe su respuesta</p></li>
 <li><p>compre las dos repuestas. ¿Son diferentes?</p></li>
-<li><p>Repita esta proceso con hilb(1000), ¿que pasa? ¿Por que cree que sucede esto?</p></li>
+<li><p>Repita esta proceso con hilbert(1000), ¿que pasa? ¿Por que cree que sucede esto?</p></li>
 </ol>
-
-
 </section>
+</section>
+<section id="número-de-condición-de-una-matriz" class="level2">
+<h2 class="anchored" data-anchor-id="número-de-condición-de-una-matriz">Número de condición de una matriz</h2>
+<p>Sea <span class="math inline">\(A\)</span> una matriz cuadrada de <span class="math inline">\(n \times n\)</span>, notamos como <span class="math inline">\(\|A\|\)</span> la norma de la matriz <span class="math inline">\(A\)</span> y <span class="math inline">\(\|A^{-1}\|\)</span> es la norma de la matriz inversa de <span class="math inline">\(A\)</span>.</p>
+<p><strong>Teorema</strong> Si <span class="math inline">\(A\)</span> es una matriz invertible, entonces <span class="math inline">\(\kappa_2(A) = \frac{\lambda_{\max}(A)}{\lambda_{\min}(A)}\)</span>, donde <span class="math inline">\(\lambda_{\max}(A)\)</span> es el mayor valor propio de <span class="math inline">\(A\)</span> y <span class="math inline">\(\lambda_{\min}(A)\)</span> es el menor valor propio de <span class="math inline">\(A\)</span>.</p>
+<p><strong>Factor de error de magnificación</strong> El factor de error de magnificación es una medida de la magnitud del error relativo en la solución de un sistema de ecuaciones lineales, <span class="math inline">\(Ax=b\)</span>. El factor de error de magnificación se define como:</p>
+<p>Sea <span class="math inline">\(x_a\)</span> la solución aproximada del sistema de ecuaciones lineales <span class="math inline">\(Ax=b\)</span> y <span class="math inline">\(x\)</span> la solución exacta del sistema de ecuaciones lineales <span class="math inline">\(Ax=b\)</span>. El residual se define como <span class="math inline">\(r = b - Ax_a\)</span>. El error hacia atrás es la norma del residual <span class="math inline">\(\|r\|=\|b-Ax\|\)</span>. El error hacia adelante es la norma de la diferencia entre la solución aproximada y la solución exacta <span class="math inline">\(\|x_a - x\|\)</span>.</p>
+<p><strong>Ejemplo</strong></p>
+<p>Encontrar el error hacia adelante y el error hacia atrás para la solución aproximada <span class="math inline">\(x_a=[1,1]\)</span> del sistema</p>
+<p><span class="math display">\[\begin{bmatrix}1&amp;1\\3&amp;-4\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}3\\2\end{bmatrix}\]</span> + Encuentre la solución exacta del sistema de ecuaciones lineales. <span class="math inline">\([2,1]\)</span> + Encuentre el error hacia atrás. + Encuentre el error hacia adelante. <strong>Ejemplo</strong> Encuentre los errores hacia adelante y hacia atrás para la solución aproximada <span class="math inline">\(x_a=[−1, 3.0001]\)</span> de el sistema</p>
+<p><span class="math display">\[\begin{bmatrix}1&amp;1\\1.0001&amp;1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}2\\2.0001\end{bmatrix}\]</span> + Encuentre la solución exacta del sistema de ecuaciones lineales, <span class="math inline">\([1,1]\)</span> + Encuentre el error hacia atrás. + Encuentre el error hacia adelante. Resolviendo el sistema tenemos <span class="math display">\[x =[1,1]\]</span></p>
+<p><strong>Definición</strong> Denotamos el error relativo hacia atrás como <span class="math inline">\(\frac{\|r\|}{\|b\|}\)</span> y el error relativo hacia adelante como <span class="math inline">\(\frac{\|x_a - x\|}{\|x\|}\)</span>.</p>
+<p>Usando la anteriro definición podemos introducir el concepto de <strong>factor de error de magnificación</strong>. El factor de error de magnificación es una medida de la magnitud del error relativo en la solución de un sistema de ecuaciones lineales, <span class="math inline">\(Ax=b\)</span>. El factor de error de magnificación se define como:</p>
+<p><span class="math display">\[factor\ magnificación\ error=\frac{error_{realitco\ hacia\ delante}}{error_{realitco\ hacia\  atras}}=\frac{\frac{||x-x_a||_{\infty}}{||x||_\infty}}{\frac{||r||_\infty}{||b||_\infty}}\]</span></p>
+<p>en el sistema anterior tenemos que <span class="math display">\[40004.0001\%\]</span></p>
+<p>El número de condición de una matriz es una medida de la sensibilidad de la solución de un sistema de ecuaciones lineales a pequeños cambios en los coeficientes de las ecuaciones. El número de condición de una matriz se define como:</p>
+<p><span class="math display">\[\kappa(A) = \|A\| \|A^{-1}\|\]</span></p>
+<p>El numero de condición de una matriz cuadrada se puede interpretar como el máximo factor de ampliación del error posible para resolver <span class="math inline">\(Ax = b\)</span>, sobre todos los lados derechos <span class="math inline">\(b\)</span>.</p>
+<p><strong>Ejemplo</strong> Calculemos el numero de condición de la matriz <span class="math display">\[\begin{bmatrix}1&amp;1\\1.0001&amp;1\end{bmatrix}\]</span></p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the matrix</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="fl">1.0001</span>, <span class="dv">1</span>]])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the condition number</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>cond <span class="op">=</span> np.linalg.cond(A)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The condition number of the matrix is:"</span>, cond)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The condition number of the matrix is: 40002.00007489988</code></pre>
+</div>
+</div>
+<p>El significado del número de condición es el mismo que en el Capítulo 1. Error de factor de magnificación de una magnitud <span class="math inline">\(cond( A)\)</span> son posibles. En aritmética de coma flotante, No se puede esperar que el error relativo hacia atrás sea menor que <span class="math inline">\(\in_{mach}\)</span>, ya que almacenar las entradas de <span class="math inline">\(b\)</span> ya causan errores de ese tamaño. Según el factor de magnificación, la fuerza relativa Son posibles errores de tamaño <span class="math inline">\(\in_{mach}\cdot cond(A)\)</span> al resolver <span class="math inline">\(Ax = b\)</span>. En otras palabras, si <span class="math inline">\(cond(A) \aprox 10^k\)</span>, deberíamos prepararnos para perder <span class="math inline">\(k\)</span> dígitos de precisión al calcular <span class="math inline">\(x\)</span>.</p>
+
+
 </section>
 </section>
 

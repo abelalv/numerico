@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases – taller1</title>
+<title>clases – borradores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -284,81 +283,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" id="toc-problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="nav-link active" data-scroll-target="#problema-de-modelado-del-crecimiento-tumoral-con-tratamiento">Problema de Modelado del Crecimiento Tumoral con Tratamiento</a>
-  <ul class="collapse">
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
-  </ul></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#modelo-matemático" id="toc-modelo-matemático" class="nav-link" data-scroll-target="#modelo-matemático">Modelo Matemático</a></li>
-  <li><a href="#ejemplo-de-funciones-mut-y-betat" id="toc-ejemplo-de-funciones-mut-y-betat" class="nav-link" data-scroll-target="#ejemplo-de-funciones-mut-y-betat">Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></a></li>
-  <li><a href="#problema" id="toc-problema" class="nav-link" data-scroll-target="#problema">Problema</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="problema-de-modelado-del-crecimiento-tumoral-con-tratamiento" class="level1">
-<h1>Problema de Modelado del Crecimiento Tumoral con Tratamiento</h1>
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Estás trabajando en un proyecto de investigación biomatemática centrado en el crecimiento de un tumor maligno en un paciente con cáncer. Tu objetivo es modelar cómo evoluciona el tumor en respuesta a un tratamiento que varía con el tiempo. Utilizarás un modelo de crecimiento tumoral más complejo, el modelo de crecimiento tumoral con tratamiento, que involucra tasas de crecimiento variables y la administración de un tratamiento.</p>
-<ul>
-<li>En el momento <span class="math inline">\(t = 0\)</span>, el volumen del tumor <span class="math inline">\(V\)</span> es de <span class="math inline">\(1 cm^3\)</span>.</li>
-<li>La tasa de crecimiento máxima del tumor, <span class="math inline">\(\mu(t)\)</span>, varía con el tiempo.</li>
-<li>La constante que controla la velocidad de disminución en la tasa de crecimiento, <span class="math inline">\(\alpha\)</span>, es igual a 0.01.</li>
-<li>La tasa de reducción del tumor debido al tratamiento, <span class="math inline">\(\beta(t)\)</span>, también varía con el tiempo.</li>
-</ul>
-</section>
-</section>
-<section id="objetivo" class="level1">
-<h1>Objetivo</h1>
-<p>Deseas encontrar el tiempo <span class="math inline">\(t\)</span> en el que el volumen del tumor alcance un valor específico <span class="math inline">\(V_0\)</span>, que en este caso es de <span class="math inline">\(2 cm^2\)</span>, teniendo en cuenta la variabilidad en las tasas de crecimiento y la administración del tratamiento a lo largo del tiempo.</p>
-</section>
-<section id="modelo-matemático" class="level1">
-<h1>Modelo Matemático</h1>
-<p>El modelo de crecimiento tumoral con tratamiento se describe mediante la siguiente ecuación diferencial ordinaria (EDO): <span class="math display">\[\frac{dV}{dt} = \mu(t) V \exp(-\alpha t) - \beta(t) V\]</span> <span class="math display">\[\frac{dV}{dt} = \Big(\mu(t)  \exp(-\alpha t) - \beta(t) \Big)V\]</span></p>
-<p><strong>Recuerde</strong> si una ecuación diferecial tiene la forma: <span class="math display">\[\frac{dy}{dx} = f(x)g(y)\]</span> entonces la solución analítica es: <span class="math display">\[\int \frac{1}{g(y)} dy = \int f(x) dx\]</span></p>
-<p>Donde: + <span class="math inline">\(\frac{dV}{dt}\)</span> es la tasa de cambio del volumen del tumor con respecto al tiempo. + <span class="math inline">\(V\)</span> es el volumen del tumor en un momento dado. + <span class="math inline">\(\mu(t)\)</span> es una función que representa la tasa de crecimiento del tumor en función del tiempo <span class="math inline">\(t\)</span>. + <span class="math inline">\(\alpha\)</span> es una constante que controla la velocidad de disminución en la tasa de crecimiento con el tiempo. + <span class="math inline">\(\beta(t)\)</span> es una función que representa la tasa de reducción del tumor debido al tratamiento en función del tiempo <span class="math inline">\(t\)</span>.</p>
-</section>
-<section id="ejemplo-de-funciones-mut-y-betat" class="level1">
-<h1>Ejemplo de Funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span></h1>
-<p>Puedes utilizar ejemplos simplificados para estas funciones. Por ejemplo:</p>
-<p><span class="math display">\[\mu(t) =
-\begin{cases}
-0.05, &amp; \text{si } t &lt; 30 \text{ días} \\
-0.02, &amp; \text{si } t \geq 30 \text{ días}
-\end{cases}\]</span></p>
-<p><span class="math display">\[\beta(t) =
-\begin{cases}
-0, &amp; \text{si } t &lt; 15 \text{ días} \\
-0.04, &amp; \text{si } 15 \text{ días} \leq t &lt; 60 \text{ días} \\
-0.02, &amp; \text{si } t \geq 60 \text{ días}
-\end{cases}\]</span></p>
-</section>
-<section id="problema" class="level1">
-<h1>Problema</h1>
-<ol type="1">
-<li>Plantee la solución analítica de la anterior ecuación diferencial.</li>
-<li>¿Con las funciones anteriores encuentre en que tiempo la tasa de crecimiento sería positiva?</li>
-<li>¿Cuándo se espera que el volumen del tumor alcanza 1.5 <span class="math inline">\(cm^3\)</span> en función de las tasas de crecimiento y reducción proporcionadas por las funciones <span class="math inline">\(\mu(t)\)</span> y <span class="math inline">\(\beta(t)\)</span>?</li>
-<li>Si suspende el tratamiento entonces <span class="math inline">\(\alpha=-0.1\)</span> y <span class="math inline">\(\beta(t)=0\)</span>, ¿cuándo se espera que el volumen del tumor alcance 17.5 <span class="math inline">\(cm^3\)</span>?</li>
-</ol>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="taller1_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.sparse <span class="im">import</span> coo_matrix</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar una matriz dispersa grande de 1000x1000</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>num_elementos_no_nulos <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Número de elementos no nulos</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar datos aleatorios para los elementos no nulos</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.random.rand(num_elementos_no_nulos)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generar índices de fila y columna aleatorios para los elementos no nulos</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>row_indices <span class="op">=</span> np.random.randint(<span class="dv">0</span>, n, num_elementos_no_nulos)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>column_indices <span class="op">=</span> np.random.randint(<span class="dv">0</span>, n, num_elementos_no_nulos)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>sparse_matrix <span class="op">=</span> coo_matrix((data, (row_indices, column_indices)), shape<span class="op">=</span>(n, n))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar la matriz dispersa como un mapa de calor</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.spy(sparse_matrix, markersize<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Matriz Dispersa Grande'</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
