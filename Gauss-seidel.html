@@ -256,12 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sistemas de Ecuaciones</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
@@ -278,10 +278,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Gauss-seidel.html" class="sidebar-item-text sidebar-link active">Jacobi y Gauss-Seidel</a>
-  </div>
-</li>
+  Gauss-seidel2.qmd
+  </li>
       </ul>
   </li>
     </ul>
@@ -289,7 +287,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#metodo-de-gauss-seidel" id="toc-metodo-de-gauss-seidel" class="nav-link active" data-scroll-target="#metodo-de-gauss-seidel">Metodo de Gauss-Seidel</a>
+  <ul class="collapse">
+  <li><a href="#teorema" id="toc-teorema" class="nav-link" data-scroll-target="#teorema">Teorema</a></li>
+  <li><a href="#convergencia-de-los-métodos" id="toc-convergencia-de-los-métodos" class="nav-link" data-scroll-target="#convergencia-de-los-métodos">Convergencia de los métodos</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -314,44 +322,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El método de Gauss-Seidel es un método iterativo para resolver sistemas de ecuaciones lineales. El método consiste en despejar una variable de una ecuación y sustituirla en otra ecuación. Este proceso se repite hasta que se obtiene una solución aproximada.</p>
 <p>Para deducir el método de Gauss-Seidel, se parte de un sistema de ecuaciones lineales de la forma:</p>
 <p><span class="math display">\[Ax = b\]</span> donde la matriz <span class="math inline">\(A\)</span> es una matriz cuadrada de <span class="math inline">\(n \times n\)</span>, <span class="math inline">\(x\)</span> es un vector de <span class="math inline">\(n\)</span> elementos y <span class="math inline">\(b\)</span> es un vector de <span class="math inline">\(n\)</span> elementos. De esta forma la matriz <span class="math inline">\(A\)</span> se puede descomponer en la suma de dos matrices <span class="math inline">\(D\)</span> y <span class="math inline">\(M\)</span> de la siguiente forma:</p>
-<p><span class="math display">\[A = D + M\]</span> donde <span class="math inline">\(D\)</span> es la matriz de los elementos de la diagonal y <span class="math inline">\(M\)</span> es la matriz de los elementos que no están en la diagonal. De esta forma, el sistema de ecuaciones se puede reescribir como:</p>
-<p><span class="math display">\[Dx = b - Mx\]</span> De esta forma podemos crear un método iterativo de la forma <span class="math display">\[x^{n+1} = D^{-1}(b - Mx^n)\]</span></p>
+<p><span class="math display">\[A = L+D+U\]</span> donde <span class="math inline">\(D\)</span> es la matriz de los elementos de la diagonal y <span class="math inline">\(L\)</span> es la matriz triangular estrictamente inferior con <span class="math inline">\(a_{ij}=l_{ij}\)</span> si <span class="math inline">\(i&gt;j\)</span> y <span class="math inline">\(l_{ii}=0\)</span> y <span class="math inline">\(U\)</span> es la matriz estrictamente triangular superior, es decir <span class="math inline">\(a_{ij}=u_{ij}\)</span> si <span class="math inline">\(i&lt;j\)</span> y <span class="math inline">\(u_{ii}=0\)</span> . De esta forma, el sistema de ecuaciones se puede reescribir como:</p>
+<p><span class="math display">\[Dx = b - (L+U)x\]</span> De esta forma podemos crear un método iterativo de la forma <span class="math display">\[x^{n+1} = D^{-1}(b - (L+U)x^n)\]</span></p>
 <p><strong>El método de Jacobi</strong> es una generalización del método del punto fijo. Los críterios de convergencia de este método es</p>
 <ul>
 <li><p>La matriz <span class="math inline">\(A\)</span> debe ser diagonal dominante, es decir, que el valor absoluto de la diagonal debe ser mayor que la suma de los valores absolutos de los elementos de la fila. <span class="math display">\[|a_{ii}| &gt; \sum_{j=1, j \neq i}^{n} |a_{ij}|\]</span></p></li>
 <li><p>Se debe dar un valor inicial <span class="math inline">\(x_0\)</span> ,adecuado.</p></li>
 </ul>
 <p><strong>Pseudocódigo</strong></p>
-<p>Función Jacobi(A, b, x0, tol, max_iter)</p>
-<pre><code>n = longitud(b)
+<p>Dados <span class="math inline">\(A_{n\times n}\)</span> y <span class="math inline">\(b_{n\times 1}\)</span>, max_iteraciones, tolerancia y <span class="math inline">\(x_0\)</span>:</p>
+<p>Para k=0,1,2,…,max_iteraciones:</p>
+<pre><code>Para i=1,2,...,n:
 
-x = copiar(x0)
-
-iter = 0
-
-mientras iter &lt; max_iter
-    iter = iter + 1
-    nuevo_x = vector(n)
-    
-    para i desde 0 hasta n-1
-        suma = 0
-        para j desde 0 hasta n-1
-            si j ≠ i
-                suma = suma + A[i][j] * x[j]
-            fin si
-        fin para
-        nuevo_x[i] = (b[i] - suma) / A[i][i]
-    fin para
-    
-    si convergencia(x, nuevo_x, tol)
-        devolver nuevo_x
-    fin si
-    
-    x = copiar(nuevo_x)
-fin mientras
-
-devolver "No se alcanzó la convergencia después de max_iter iteraciones"</code></pre>
-<p>Fin</p>
+    $x_i^{k+1} = \frac{1}{a_{ii}}(b_i - \sum_{j=1, j \neq i}^{n} a_{ij}x_j^k)$
+    si $||x^{k+1} - x^k|| &lt; tolerancia$ para todo $i=1,2,...,n$:
+        Imprima la solución y detenga el algoritmo
+    sino
+        $x^k = x^{k+1}$</code></pre>
+<p><strong>Ejercicio</strong> observe el siguietne código si es necesario,comente cada línea de código, compruebe que corresponde al pseudocódigo anterior (en caso contrario realice los respectivos cambios) y ejecute el código.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -402,8 +390,111 @@ devolver "No se alcanzó la convergencia después de max_iter iteraciones"</code
 <pre><code>La solución aproximada es: [0.38297877 0.89361697 1.04255282]</code></pre>
 </div>
 </div>
+<section id="metodo-de-gauss-seidel" class="level1">
+<h1>Metodo de Gauss-Seidel</h1>
+<p><strong>Pseudocódigo</strong> Dados <span class="math inline">\(A_{n\times n}\)</span> y <span class="math inline">\(b_{n\times 1}\)</span>, max_iteraciones, tolerancia y <span class="math inline">\(x_0\)</span>:</p>
+<p>Para k=0,1,2,…,max_iteraciones:</p>
+<pre><code>Para i=1,2,...,n:
+
+    $x_i^{k+1} = \frac{1}{a_{ii}}(b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{k+1} - 
+    \sum_{j=i+1}^{n} a_{ij}x_j^k)$
+    
+    si $||x^{k+1} - x^k|| &lt; tolerancia$ para todo $i=1,2,...,n$:
+        Imprima la solución y detenga el algoritmo
+
+    sino
+        $x^k = x^{k+1}$</code></pre>
+<p><strong>Ejercicio</strong> observe el siguietne código si es necesario,comente cada línea de código, compruebe que corresponde al pseudocódigo anterior (en caso contrario realice los respectivos cambios) y ejecute el código.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gaussseidel(A, b, x0, tol, max_iter):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(b)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x0.copy()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    iter_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> iter_count <span class="op">&lt;</span> max_iter:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        iter_count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        new_x <span class="op">=</span> np.zeros(n)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            sum_ <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> j <span class="op">!=</span> i:</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> j <span class="op">&lt;</span> i:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                        sum_ <span class="op">+=</span> A[i][j] <span class="op">*</span> new_x[j]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                        sum_ <span class="op">+=</span> A[i][j] <span class="op">*</span> x[j]</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>            new_x[i] <span class="op">=</span> (b[i] <span class="op">-</span> sum_) <span class="op">/</span> A[i][i]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Comprobar convergencia</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.<span class="bu">all</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> new_x) <span class="op">&lt;</span> tol):</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> new_x</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> new_x.copy()</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"El método de Gauss-Seidel no convergió después de </span><span class="sc">{}</span><span class="st"> iteraciones."</span>.<span class="bu">format</span>(max_iter))</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de coeficientes A y vector de términos constantes b</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">3</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>],</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>]])</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>])</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimación inicial</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Tolerancia y número máximo de iteraciones</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>tolerancia <span class="op">=</span> <span class="fl">1e-6</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>max_iteraciones <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Llamada a la función para resolver el sistema</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>solucion <span class="op">=</span> gaussseidel(A, b, x0, tolerancia, max_iteraciones)</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La solución aproximada es:"</span>, solucion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La solución aproximada es: [0.38297865 0.89361694 1.04255321]</code></pre>
+</div>
+</div>
+<p>Note que el método de Gauss-Seidel se puede escribir de forma matricial como:</p>
+<p><span class="math display">\[Ax = b\]</span> <span class="math display">\[(L+D)x^{k+1} = b- Ux^k\]</span> <span class="math display">\[Dx^{k+1} = b-Lx^{k+1} Ux^k \]</span> <span class="math display">\[x^{k+1} = D^{-1}(b-Lx^{k+1} - Ux^k)\]</span></p>
+<p><strong>Note</strong> que los métodos de Jacobi y Gauus-Seidel son muy similares, la diferencia radica en que en el método de Gauss-Seidel se utiliza la solución de la iteración actual para calcular la siguiente iteración. Además, se puede escribir de forma matricial como:</p>
+<p><span class="math display">\[x^{k+1}=Bx^k+c\]</span></p>
+<p>donde para el método de Jacobi <span class="math display">\[B_{jacobi}=D^{-1}(L+U)\]</span> y para el método de Gauss-Seidel <span class="math display">\[B_{gauss-seidel}=(D-L)^{-1}U\]</span></p>
+<p>La convergencia de los dos métodos se estudia a partir del radio espectral de la matriz <span class="math inline">\(B\)</span>, es decir los autovalores de <span class="math inline">\(B\)</span>.</p>
+<section id="teorema" class="level2">
+<h2 class="anchored" data-anchor-id="teorema">Teorema</h2>
+<p>Un método iterativo de la forma <span class="math inline">\(x^{k+1}=Bx^k+c\)</span> converge si y solo si <span class="math inline">\(\rho(B)&lt;1\)</span>, donde <span class="math inline">\(\rho(B)\)</span> es el radio espectral de <span class="math inline">\(B\)</span>., en otras palabras, el método converge si <span class="math display">\[max_{\lambda \in \sigma(B)}|\lambda|&lt;1,\]</span> donde <span class="math inline">\(\lambda\)</span> es un autovalor de <span class="math inline">\(B\)</span> y <span class="math inline">\(\sigma(B)\)</span> es el conjunto de autovalores de <span class="math inline">\(B\)</span>.</p>
+</section>
+<section id="convergencia-de-los-métodos" class="level2">
+<h2 class="anchored" data-anchor-id="convergencia-de-los-métodos">Convergencia de los métodos</h2>
+<p>Mostrar que que un método converge no es simple, pero podemos establecer algunos criterios para determinar si un método converge o no.</p>
+<ul>
+<li><p>Lo métodos iterativos de Jacobi y Gauss-Seidel convergen si la matriz <span class="math inline">\(A\)</span> es diagonal dominante, es decir que el valor absoluto de la diagonal debe ser mayor que la suma de los valores absolutos de los elementos de la fila. <span class="math display">\[|a_{ii}| &gt; \sum_{j=1, j \neq i}^{n} |a_{ij}|\]</span></p></li>
+<li><p>Si la matriz <span class="math inline">\(A\)</span> es simétrica y definida positiva, entonces el método de Gauss-Seidel converge.</p></li>
+</ul>
+<p><strong>Note</strong> un sistema puede converger usando Jacobi o Gauss-Seidel pero podría no satisfacer alguno de estos criterios.</p>
+<p><strong>Ejercicio</strong></p>
+<p>Sea el siguiente sistema</p>
+<p><span class="math display">\[\begin{bmatrix} 8 &amp; 2 &amp; 1 \\ 5 &amp; 4 &amp; 1 \\ 4 &amp; 3 &amp; 4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 1 \\ 5 \\ 3 \end{bmatrix}\]</span> + Muestre que la matriz <span class="math inline">\(A\)</span> no es diagonal dominante. + Muestre que la matriz <span class="math inline">\(A\)</span> no es simétrica y definida positiva.</p>
+<ul>
+<li><p>Encuentre la matriz <span class="math inline">\(B\)</span> para el método de Jacobi y Gauss-Seidel, y encuentre el radio espectral de <span class="math inline">\(B\)</span>, para cada caso.</p></li>
+<li><p>¿El método de Jacobi converge? ¿El método de Gauss-Seidel converge?</p></li>
+</ul>
+<p><strong>Ejercicio</strong></p>
+<p>Sea el siguiente sistema</p>
+<p><span class="math display">\[Ax=b\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[A=\begin{bmatrix} 5&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0\\1&amp;5&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0\\1&amp;1&amp;5&amp;1&amp;1&amp;0&amp;0&amp;0\\0&amp;1&amp;1&amp;5&amp;1&amp;1&amp;0&amp;0\\
+0&amp;0&amp;1&amp;1&amp;5&amp;1&amp;1&amp;0\\0&amp;0&amp;0&amp;1&amp;1&amp;5&amp;1&amp;1\\
+0&amp;0&amp;0&amp;0&amp;1&amp;1&amp;5&amp;1\\
+0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;1&amp;5\\ \end{bmatrix}\]</span></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
