@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases - Cálculo numérico</title>
+<title>clases - Proyecto 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Cálculo numérico</h1>
+      <h1 class="quarto-secondary-nav-title">Proyecto 2</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Cálculo numérico</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Cálculo numérico</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -192,12 +193,12 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
@@ -220,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./proyecto2.html" class="sidebar-item-text sidebar-link">Proyecto 2</a>
+  <a href="./proyecto2.html" class="sidebar-item-text sidebar-link active">Proyecto 2</a>
   </div>
 </li>
       </ul>
@@ -237,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Cálculo numérico</h1>
+<h1 class="title d-none d-lg-block">Proyecto 2</h1>
 </div>
 
 
@@ -252,7 +253,62 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Aqui nosotros presentaremos los apuntes de algunos métodos numéricos que se utilizan en la Ingenería. Los métodos numéricos son una herramienta muy útil para resolver problemas que no tienen solución analítica o que son muy complicados de resolver analíticamente.</p>
+<ol type="1">
+<li>Los sistemas idealizados de masa resorte tiene aplicaciones numerosas en Ingeniería. en la siguiente figura se muestra un arreglo de 4 resortes en serie comprimidos por una fuerza de 2 000 kg. En el equilibrio, es posible desarrollar ecuaciones de balance de fuerzas si se definen las relaciones entre los resortes</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/sis_proy2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Proceso de extracción</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math display">\[k_2(x_2-x_1)=k_1x_1\]</span> <span class="math display">\[k_3(x_3-x_2)=k_2(x_2-x_1)\]</span> <span class="math display">\[k_4(x_4-x_3)=k_3(x_3-x_2)\]</span> <span class="math display">\[F=k_4(x_4- x_3)\]</span></p>
+<p>donde las <span class="math inline">\(k\)</span> son constantes de los resortes,<span class="math inline">\(k_1=150\)</span>,<span class="math inline">\(k_2=50\)</span>,<span class="math inline">\(k_3=75\)</span> y <span class="math inline">\(k_2=225\)</span> <span class="math inline">\(N/m\)</span></p>
+<ul>
+<li>Determine las elongaciones de los resortes <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span> y <span class="math inline">\(x_4\)</span>.</li>
+<li>Estudie el tiempo de computación para cada método.</li>
+<li>Encuentre el error del residuo para cada método.</li>
+<li>¿Qué método usted recomendaría?</li>
+</ul>
+<p>Suponga que se tiene un sistema de 20 resortes en serie, de forma similar al ejercicio anterior</p>
+<ul>
+<li><p>Describa un sistema de ecuaciones que describa el sistema de resortes, suponiendo que se simulan linealizados, es decir, que la fuerza de cada resorte es proporcional a su elongación.</p></li>
+<li><p>Suponiendo que <span class="math inline">\(k_i=100+i\)</span> <span class="math inline">\(N/m\)</span> para <span class="math inline">\(i=1,2,...,20\)</span> y <span class="math inline">\(F=1000\)</span> <span class="math inline">\(N\)</span>, determine las elongaciones de los resortes <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span> y <span class="math inline">\(x_4\)</span>.</p></li>
+<li><p>Estudie el tiempo de computación para cada método.</p></li>
+<li><p>Encuentre el error del residuo para cada método.</p></li>
+<li><p>¿Qué método usted recomendaría?</p></li>
+</ul>
+<ol start="2" type="1">
+<li>En muchas aplicaciones de ingeniería se debe calcular la inversa de una matriz.</li>
+</ol>
+<ul>
+<li><p>Escriba una algoritmo para calcular la inversa de una matriz cuadrada de <span class="math inline">\(n\times n\)</span>. Usando soluciones de sistemas de ecuaciones lineales (use el que usted considere más adecuado)</p></li>
+<li><p>Estudie el tiempo de computación para cada método.</p></li>
+<li><p>Verifique que <span class="math inline">\(A*A{^-1}=I\)</span>, donde <span class="math inline">\(A^{-1}\)</span>, es la matriz que uste encontró.</p></li>
+<li><p>El resultado fue el esperado, analice la situación.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Proceso de extracción en etapas</strong> En un sistema de proceso de extracción por etapas uan corriente que contiene una fracción de peso <span class="math inline">\(Y_{ent}\)</span> de un producto químico ingresa por la izquierda con una tasa de flujo de masa <span class="math inline">\(F_1\)</span>. En forma simultanea un solvente que lleva una fracción de peso <span class="math inline">\(X_{ent}\)</span> del mismo producto químico entra por la derecha con una tasa de flujo <span class="math inline">\(F_2\)</span>. Así por la etapa <span class="math inline">\(i\)</span>, en el balance de la masa se representa como</li>
+</ol>
+<p><span class="math display">\[F_1Y_{i-1}+F_2X_{i+1}=F_1Y_i+F_2X_i,\]</span></p>
+<p>en cada etapa, se supone que se establece el equilibrio entre <span class="math inline">\(Y_i\)</span> y <span class="math inline">\(X_i\)</span> como en</p>
+<p><span class="math display">\[K=\frac{X_i}{Y_i}\]</span></p>
+<p>donde <span class="math inline">\(K\)</span> se denomina coeficiente de distribución. El proceso de extracción se puede representar como en la figura</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figures/sis_proy.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Proceso de extracción</figcaption><p></p>
+</figure>
+</div>
+<p>en la ecuación anterior se puede despejar <span class="math inline">\(X_i\)</span> y sustituir para obtener</p>
+<p><span class="math display">\[Y_{i-1}-\Big(1+\frac{F_2}{F_1}K\Big)Y_{i}+\Big(\frac{F_2}{F_1}K\Big)Y_{i+1}=0\]</span></p>
+<p>Si <span class="math inline">\(F_1=400\)</span> <span class="math inline">\(kg/h\)</span>, <span class="math inline">\(Y_{ent}=0.1\)</span>, <span class="math inline">\(F_2=800\)</span> <span class="math inline">\(kg/h\)</span>, <span class="math inline">\(X_{ent}=0\)</span> y <span class="math inline">\(K= 5\)</span>, determine la composición de la corriente de salida <span class="math inline">\(Y_{sal}\)</span> y <span class="math inline">\(X_{sal}\)</span>, si emplea un reactor de 5 etapas, de 10 etapas y de 20 etapas. Observe que la ecuación anterior deb modificarse para tomar en cuenta las fracciones de peso del flujo de entrada cuando se aplique a la primera y última ecuación.</p>
+<ul>
+<li>Encuentre la solución para 5, 10 y 20 etapas usando factorización LU, Gauss-Seidel y Jacobi, (use una tolerancia de <span class="math inline">\(10^{-6}\)</span>).</li>
+<li>Estudie el tiempo de computación para cada método.</li>
+<li>Encuentre el error del residuo para cada método.</li>
+<li>¿Qué método usted recomendaría? <strong>Sacado de Metods numericos para ingenería de Steven C. Chapra</strong></li>
+</ul>
 
 
 
