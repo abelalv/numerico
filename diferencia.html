@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases – taller_parcial2</title>
+<title>clases – diferencia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -256,12 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Sistemas de Ecuaciones</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Sistemas de Ecuaciones</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./normas.html" class="sidebar-item-text sidebar-link">Normas</a>
@@ -289,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller_parcial2.html" class="sidebar-item-text sidebar-link active">taller_parcial2.html</a>
+  <a href="./taller_parcial2.html" class="sidebar-item-text sidebar-link">taller_parcial2.html</a>
   </div>
 </li>
       </ul>
@@ -314,139 +314,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#diferencias-divididas-de-newton" id="toc-diferencias-divididas-de-newton" class="nav-link active" data-scroll-target="#diferencias-divididas-de-newton">Diferencias divididas de newton</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<p><strong>Taller de repaso parcial</strong></p>
-<ol type="1">
-<li><p>Escriba un pseudocódigo usando LU con pivotiamiento para encontrar la inversa de un matriz <span class="math inline">\(A\)</span>, suponiendo que la matriz es invertible.</p></li>
-<li><p>Realice una tabla comparativa para los siguientes métodos escribiendo, ventajas, desventajas, cuando se debe usar, cuando se debe evitar cuando es su convergencia. LU con y sin pivotiamiento, Cholescky, Jacobi y Gauss-seidell</p></li>
-<li><p>Explique que es numero de condición y por que es importante.</p></li>
-<li><p>Resuelva el siguiente sistema de ecuaciones, <span class="math display">\[\begin{bmatrix} 10^{-20} &amp; 1  \\ 1 &amp; 2  \end{bmatrix} \begin{bmatrix} x_1 \\ x_2  \end{bmatrix} = \begin{bmatrix} 1 \\ 4  \end{bmatrix}\]</span></p></li>
-</ol>
-<p>Usando factorización LU con y sin pivoteo. Recuerde que computacionalmente <span class="math inline">\(1+10^{-20} = 1\)</span> y <span class="math inline">\(2-10^{20} = -10^{20}\)</span>.</p>
-<ol start="5" type="1">
-<li><p>Analice el residuo generado por el sistema de ecuaciones anterior. ¿Es grande o pequeño? ¿Es un buen indicador de la solución? Encuentre la solución exacta el error absoluto. Realice este procesos usando las normas 1, 2 y <span class="math inline">\(\infty\)</span>.</p></li>
-<li><p>Porque es importante usar pivoteo en la factorización LU para resolver sistemas de ecuaciones. De ejemplos.</p></li>
-<li><p>Las corrientes <span class="math inline">\(i_1,i_2,i_3,i_4\)</span> y <span class="math inline">\(i_5\)</span> en el circuito puede ser determinado<br>
-desde la solución del sistema de ecuaciones (obtenido aplicando la ley de Kirchhoff)</p></li>
-</ol>
-<p><span class="math display">\[\begin{equation}
-\begin{split}
-9.5i_1-2.5i_2-2i_4=12,\\
--2.5i_1+11i_2-3.5i_3-5i_5=-16,\\
--3.5i_2+15.5i_3-4i_5=14,\\
--2i_1+7i_4-3i_5=10,\\
--5i_2-4i_3-3i_4+12i_5=-30.
-\end{split}
-\end{equation}\]</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/cir.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Circuito</figcaption><p></p>
-</figure>
+<section id="diferencias-divididas-de-newton" class="level1">
+<h1>Diferencias divididas de newton</h1>
+<p>Una forma más eficiente de calcular el polinomio interpolante de Newton es mediante las diferencias divididas de Newton. El cual consiste en calcular los coeficientes de la siguiente forma: <span class="math display">\[f[x_0] = f(x_0)\]</span> <span class="math display">\[f[x_0,x_1] = \frac{f(x_1)-f(x_0)}{x_1-x_0}\]</span> <span class="math display">\[f[x_0,x_1,x_2] = \frac{f[x_1,x_2]-f[x_0,x_1]}{x_2-x_0}\]</span> <span class="math display">\[f[x_0,x_1,x_2,x_3] = \frac{f[x_1,x_2,x_3]-f[x_0,x_1,x_2]}{x_3-x_0}\]</span> de forma general: <span class="math display">\[f[x_0,x_1,...,x_n] = \frac{f[x_1,x_2,...,x_n]-f[x_0,x_1,...,x_{n-1}]}{x_n-x_0}\]</span></p>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(f(x_i)\)</span></th>
+<th><span class="math inline">\(f[x_i,x_{+1}]\)</span></th>
+<th><span class="math inline">\(f[x_i,x_{i+1},x_{i+2}]\)</span></th>
+<th><span class="math inline">\(f[x_i,x_{i+1},x_{i+2}]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>5</td>
+<td>1</td>
+<td>————–</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>12</td>
+<td>8</td>
+<td>————–</td>
+<td>————–</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>20</td>
+<td>————–</td>
+<td>————–</td>
+<td>————–</td>
+</tr>
+</tbody>
+</table>
+<p>Así el polinomio interpolante de Newton se puede escribir como: <span class="math display">\[P_n(x) = f[x_0] + f[x_0,x_1](x-x_0) + f[x_0,x_1,x_2](x-x_0)(x-x_1) + ... + f[x_0,x_1,...,x_n](x-x_0)(x-x_1)...(x-x_{n-1})\]</span></p>
+<p>Veamos un ejemplo:</p>
+<p>Sea la siguiente tabla de valores:</p>
+<p>Sea la siguiente tabla de valores:</p>
+<table class="table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 27%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th><span class="math inline">\(f(x_i)\)</span></th>
+<th><span class="math inline">\(f[x_i,x_i+1]\)</span></th>
+<th><span class="math inline">\(f[x_i,x_i+1,x_i+2]\)</span></th>
+<th><span class="math inline">\(f[x_i,x_i+1,x_i+2,x_i+3]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>5</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>12</td>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Así el polinomio interpolante de Newton es: <span class="math display">\[c_0=f(x_0)=0\]</span> <span class="math display">\[c_1=f[x_0,x_1]=2\]</span> <span class="math display">\[c_2=f[x_0,x_1,x_2]=1\]</span> <span class="math display">\[c_3=f[x_0,x_1,x_2,x_3]=0\]</span></p>
+<p>De esta forma el polinomio interpolante de Newton es:</p>
+<p><span class="math display">\[p(x)=0+2(x-1)+1(x-1)(x-2)+0(x-1)(x-2)(x-4)\]</span></p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcular_diferencias_divididas(x, y):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    diferencias <span class="op">=</span> [[<span class="dv">0</span>] <span class="op">*</span> n <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        diferencias[i][<span class="dv">0</span>] <span class="op">=</span> y[i]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">-</span> j):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            diferencias[i][j] <span class="op">=</span> (diferencias[i <span class="op">+</span> <span class="dv">1</span>][j <span class="op">-</span> <span class="dv">1</span>] <span class="op">-</span> diferencias[i][j <span class="op">-</span> <span class="dv">1</span>]) <span class="op">/</span> (x[i <span class="op">+</span> j] <span class="op">-</span> x[i])</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> diferencias[<span class="dv">0</span>]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evaluar_polynomial_newton(coeficientes, x, xi):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(coeficientes)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    resultado <span class="op">=</span> coeficientes[<span class="dv">0</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n):</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        factor <span class="op">*=</span> (xi <span class="op">-</span> x[i <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        resultado <span class="op">+=</span> coeficientes[i] <span class="op">*</span> factor</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultado</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de ejemplo</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">12</span>, <span class="dv">20</span>]</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular las diferencias divididas</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>coeficientes <span class="op">=</span> calcular_diferencias_divididas(x, y)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluar el polinomio de Newton en un valor específico, por ejemplo, x = 1.5</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>xi <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> evaluar_polynomial_newton(coeficientes, x, xi)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"El valor interpolado en x = </span><span class="sc">{</span>xi<span class="sc">}</span><span class="ss"> es: </span><span class="sc">{</span>resultado<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>coeficientes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>El valor interpolado en x = 1.5 es: 0.75</code></pre>
 </div>
-<p>que método es el mas adecuado para resolver este sistema de ecuaciones?. Justifique su respuesta.</p>
-<ol start="8" type="1">
-<li>Comente cada línea del siguiente código que corresponde a algún método de solución de sistemas de ecuaciones. ¿A qué método corresponde?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> metodo(A, b, x0, tol<span class="op">=</span><span class="fl">1e-6</span>, max_iter<span class="op">=</span><span class="dv">100</span>):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(A)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x0.copy()</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> iter_count <span class="kw">in</span> <span class="bu">range</span>(max_iter):</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        x_new <span class="op">=</span> np.zeros(n)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            s <span class="op">=</span> np.dot(A[i, :i], x[:i]) <span class="op">+</span> np.dot(A[i, i<span class="op">+</span><span class="dv">1</span>:], x[i<span class="op">+</span><span class="dv">1</span>:])</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            x_new[i] <span class="op">=</span> (b[i] <span class="op">-</span> s) <span class="op">/</span> A[i, i]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.linalg.norm(x_new <span class="op">-</span> x) <span class="op">&lt;</span> tol:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> x_new</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x_new</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"El método  no converge después de </span><span class="sc">{}</span><span class="st"> iteraciones"</span>.<span class="bu">format</span>(max_iter))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="9" type="1">
-<li>Sea el siguiente sistema de ecuaciones lineales <span class="math display">\[\begin{bmatrix}
-2 &amp; 1 &amp; 0 &amp;\cdots &amp;0&amp;0&amp;0\\
-1 &amp; 2 &amp; 0 &amp;\cdots &amp;0&amp;0&amp;0 \\
-0 &amp; 1 &amp; 2 &amp;\cdots &amp;0&amp;0&amp;0\\
-\vdots &amp; \vdots &amp; \vdots &amp;\ddots &amp;\vdots&amp;\vdots &amp;\ddots &amp;\vdots\\
-0 &amp; 0 &amp; 0 &amp;\cdots &amp;2&amp;1&amp;0\\
-0 &amp; 0 &amp; 0 &amp;\cdots &amp;1&amp;2&amp;1\\
-0 &amp; 0 &amp; 0 &amp;\cdots &amp;0&amp;1&amp;2\\
-\end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \\ x_3\\ \vdots\\x_{n-2}\\x_{n-1}\\ x_n\end{bmatrix}=\begin{bmatrix} b_1 \\ b_2 \\ b_3\\ \vdots\\ b_{n-2}\\b_{n-1}\\ b_n\end{bmatrix}\]</span></li>
-</ol>
-<p>¿Cuales métodos se podrian usar para resolver este sistema de ecuaciones y por que?. ¿Qué método es el mas adecuado para resolver este sistema de ecuaciones? ¿Justifique su respuesta?</p>
-<ol start="10" type="1">
-<li>Sea la siguiente matriz</li>
-</ol>
-<p><span class="math display">\[\begin{bmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9\end{bmatrix}\]</span></p>
-<ul>
-<li>Encuentre las normas 1, 2 y <span class="math inline">\(\infty\)</span> de la matriz.</li>
-</ul>
-<ol start="11" type="1">
-<li>Encuentre el polinomio interpolante de Lagrange para los siguientes puntos</li>
-</ol>
-<p><span class="math display">\[(-1,1),\quad (0,0),\quad (1,1),\quad (2,0),\quad (3,1)\]</span></p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>np.loadtxt(<span class="st">"matrix2.txt"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>array([[1.        , 0.5       , 0.33333333, 0.25      , 0.2       ,
-        0.16666667, 0.14285714, 0.125     , 0.11111111, 0.1       ,
-        0.09090909, 0.08333333, 0.07692308, 0.07142857, 0.06666667],
-       [0.5       , 0.33333333, 0.25      , 0.2       , 0.16666667,
-        0.14285714, 0.125     , 0.11111111, 0.1       , 0.09090909,
-        0.08333333, 0.07692308, 0.07142857, 0.06666667, 0.0625    ],
-       [0.33333333, 0.25      , 0.2       , 0.16666667, 0.14285714,
-        0.125     , 0.11111111, 0.1       , 0.09090909, 0.08333333,
-        0.07692308, 0.07142857, 0.06666667, 0.0625    , 0.05882353],
-       [0.25      , 0.2       , 0.16666667, 0.14285714, 0.125     ,
-        0.11111111, 0.1       , 0.09090909, 0.08333333, 0.07692308,
-        0.07142857, 0.06666667, 0.0625    , 0.05882353, 0.05555556],
-       [0.2       , 0.16666667, 0.14285714, 0.125     , 0.11111111,
-        0.1       , 0.09090909, 0.08333333, 0.07692308, 0.07142857,
-        0.06666667, 0.0625    , 0.05882353, 0.05555556, 0.05263158],
-       [0.16666667, 0.14285714, 0.125     , 0.11111111, 0.1       ,
-        0.09090909, 0.08333333, 0.07692308, 0.07142857, 0.06666667,
-        0.0625    , 0.05882353, 0.05555556, 0.05263158, 0.05      ],
-       [0.14285714, 0.125     , 0.11111111, 0.1       , 0.09090909,
-        0.08333333, 0.07692308, 0.07142857, 0.06666667, 0.0625    ,
-        0.05882353, 0.05555556, 0.05263158, 0.05      , 0.04761905],
-       [0.125     , 0.11111111, 0.1       , 0.09090909, 0.08333333,
-        0.07692308, 0.07142857, 0.06666667, 0.0625    , 0.05882353,
-        0.05555556, 0.05263158, 0.05      , 0.04761905, 0.04545455],
-       [0.11111111, 0.1       , 0.09090909, 0.08333333, 0.07692308,
-        0.07142857, 0.06666667, 0.0625    , 0.05882353, 0.05555556,
-        0.05263158, 0.05      , 0.04761905, 0.04545455, 0.04347826],
-       [0.1       , 0.09090909, 0.08333333, 0.07692308, 0.07142857,
-        0.06666667, 0.0625    , 0.05882353, 0.05555556, 0.05263158,
-        0.05      , 0.04761905, 0.04545455, 0.04347826, 0.04166667],
-       [0.09090909, 0.08333333, 0.07692308, 0.07142857, 0.06666667,
-        0.0625    , 0.05882353, 0.05555556, 0.05263158, 0.05      ,
-        0.04761905, 0.04545455, 0.04347826, 0.04166667, 0.04      ],
-       [0.08333333, 0.07692308, 0.07142857, 0.06666667, 0.0625    ,
-        0.05882353, 0.05555556, 0.05263158, 0.05      , 0.04761905,
-        0.04545455, 0.04347826, 0.04166667, 0.04      , 0.03846154],
-       [0.07692308, 0.07142857, 0.06666667, 0.0625    , 0.05882353,
-        0.05555556, 0.05263158, 0.05      , 0.04761905, 0.04545455,
-        0.04347826, 0.04166667, 0.04      , 0.03846154, 0.03703704],
-       [0.07142857, 0.06666667, 0.0625    , 0.05882353, 0.05555556,
-        0.05263158, 0.05      , 0.04761905, 0.04545455, 0.04347826,
-        0.04166667, 0.04      , 0.03846154, 0.03703704, 0.03571429],
-       [0.06666667, 0.0625    , 0.05882353, 0.05555556, 0.05263158,
-        0.05      , 0.04761905, 0.04545455, 0.04347826, 0.04166667,
-        0.04      , 0.03846154, 0.03703704, 0.03571429, 0.03448276]])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>[0, 2.0, 1.0, 0.0]</code></pre>
 </div>
 </div>
-<p>A</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span><span class="kw">lambda</span> x:<span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>x<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">11</span>) </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> f(x)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>xi<span class="op">=</span>np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">100</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>coeficientes <span class="op">=</span> calcular_diferencias_divididas(x, y)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>resultado <span class="op">=</span> evaluar_polynomial_newton(coeficientes, x, xi)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>yi<span class="op">=</span>f(xi)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'o'</span>,xi,resultado,<span class="st">'-'</span>,xi,yi,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="diferencia_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
