@@ -666,12 +666,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <ol start="5" type="1">
-<li>Solucione la siguiente EDO usando el método de Euler explicito, implícito y el método del trapecio. <span class="math display">\[\frac{dy}{dt} = -y + t^2 + 1\]</span> Note que la solución de la ecuación diferencial es <span class="math inline">\(y(t) =\cos t\)</span>, para <span class="math inline">\(t \in [0, 1]\)</span> y <span class="math inline">\(y(0) = 0\)</span> y <span class="math inline">\(\lambda=-1,-10,-100\)</span></li>
+<li>Solucione la siguiente EDO usando el método de Euler explicito, implícito y el método del trapecio. <span class="math display">\[\frac{dy}{dt} = -\lambda(y-\cos(t))-\sin t\]</span> Note que la solución de la ecuación diferencial es <span class="math inline">\(y(t) =\cos t\)</span>, para <span class="math inline">\(t \in [0, 1]\)</span> y <span class="math inline">\(y(0) = 0\)</span> y <span class="math inline">\(\lambda=\pm 1,\pm 10,\pm 100\)</span></li>
 </ol>
 </section>
 <section id="ecuaciones-rígidas" class="level2">
 <h2 class="anchored" data-anchor-id="ecuaciones-rígidas">Ecuaciones rígidas</h2>
-<p>Las ecuaciones diferenciales rígidas son aquellas que tienen soluciones que varían rápidamente en un intervalo pequeño y lentamente en un intervalo grande. Por ejemplo, considere la siguiente EDO: <span class="math display">\[\frac{dy}{dt} = -\lambda y\]</span> para <span class="math inline">\(t \in [0, 1]\)</span> y <span class="math inline">\(y(0) = 1\)</span>. La ecuaciones rígidas no se pueden aproximar usando métodos explícitos como el método de Euler explicito, ya que el paso de integración debe ser muy pequeño para que el método sea estable. Por lo general se usan métodos implícitos para resolver ecuaciones rígidas.</p>
+<p>Las ecuaciones diferenciales rígidas son aquellas que tienen soluciones que varían rápidamente en un intervalo pequeño y lentamente en un intervalo grande. Por ejemplo, considere la siguiente EDO: <span class="math display">\[\frac{dy}{dt} = \lambda y\]</span> para <span class="math inline">\(t \in [0, 1]\)</span> y <span class="math inline">\(y(0) = 1\)</span>. Note que para <span class="math inline">\(\lambda\)</span> grande la ecuación varia rápidamente en un intervalo pequeño y lentamente en un intervalo grande. La ecuaciones rígidas no se pueden aproximar usando métodos explícitos como el método de Euler explicito, ya que el paso de integración debe ser muy pequeño para que el método sea estable. Por lo general se usan métodos implícitos para resolver ecuaciones rígidas.</p>
 </section>
 <section id="método-de-runge-kutta-de-orden-4" class="level2">
 <h2 class="anchored" data-anchor-id="método-de-runge-kutta-de-orden-4">Método de Runge-Kutta de orden 4</h2>
