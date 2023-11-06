@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases - Cálculo numérico</title>
+<title>clases – taller_repaso_final</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Cálculo numérico</h1>
+      <h1 class="quarto-secondary-nav-title">clases</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Cálculo numérico</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Cálculo numérico</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -297,15 +298,15 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">Taller de repaso</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">Taller de repaso</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./taller_repaso_final.html" class="sidebar-item-text sidebar-link">taller preparacion examen final</a>
+  <a href="./taller_repaso_final.html" class="sidebar-item-text sidebar-link active">taller preparacion examen final</a>
   </div>
 </li>
       </ul>
@@ -315,31 +316,194 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#taller-preparacion-examen-final" id="toc-taller-preparacion-examen-final" class="nav-link active" data-scroll-target="#taller-preparacion-examen-final">taller preparacion examen final</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Cálculo numérico</h1>
+
+
+<section id="taller-preparacion-examen-final" class="level2">
+<h2 class="anchored" data-anchor-id="taller-preparacion-examen-final">taller preparacion examen final</h2>
+<ol type="1">
+<li>Observe las siguiente tabla de puntos</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/splines.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">splines.png</figcaption><p></p>
+</figure>
 </div>
+<ul>
+<li>Use su programa para encontrar el polinomio interpolador</li>
+<li>Use splines cubicos e interpole los puntos</li>
+</ul>
+<ol start="2" type="1">
+<li>Sea los siguientes puntos</li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.1</td>
+<td>0.09983342</td>
+</tr>
+<tr class="even">
+<td>0.2</td>
+<td>0.19866933</td>
+</tr>
+<tr class="odd">
+<td>0.3</td>
+<td>0.29552021</td>
+</tr>
+<tr class="even">
+<td>0.4</td>
+<td>0.38941834</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>0.47942554</td>
+</tr>
+<tr class="even">
+<td>0.6</td>
+<td>0.56464247</td>
+</tr>
+<tr class="odd">
+<td>0.7</td>
+<td>0.64421769</td>
+</tr>
+<tr class="even">
+<td>0.8</td>
+<td>0.71735609</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Encuentre el polinomio que interpola estos puntos usando un sistema de ecuaciones generado</li>
+<li>Use su programa para encontrar el polinomio interpolador</li>
+<li>Use splines cúbicos e interpole los puntos</li>
+<li>Grafique los polinomios obtenidos en cada uno de los puntos anteriores y compare con la función <span class="math inline">\(f(x)=\sin(x)\)</span></li>
+</ul>
+<ol start="3" type="1">
+<li><p>Encuentre la aproximación de <span class="math display">\[
+u'(x) = c_{-2} u(x-2h) + c_{-1} u(x-h) + c_0u(x) + c_1u(x+h) +
+c_2u(x+2h) + O(h^4).
+\]</span></p></li>
+<li><p>Encuentre la aproximacion de <span class="math display">\[u''(x) = c_{-2} u(x-2h) + c_{-1} u(x-h) + c_0u(x) + c_1u(x+h) +
+c_2u(x+2h) + O(h^4).\]</span></p></li>
+<li><p>Teste la formula para cinco puntos para aproximar <span class="math inline">\(u''(1)\)</span> usando <span class="math inline">\(u(x) = \sin(2x)\)</span> con valores de <span class="math inline">\(h\)</span> desde el siguiente vector {}. Haga una tabla del error versus<br>
+el valor de <span class="math inline">\(h\)</span>. ¿De que orden es el error?</p></li>
+<li><p>Sea la siguiente familia de puntos</p></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>1.0</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>1.5</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>1.1</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td>1.7</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<p>Encuentre <span class="math inline">\(y'\)</span> de primer y segundo orden en el punto $<span class="math inline">\(1.7\)</span>.</p>
+<ol start="7" type="1">
+<li>En un circuito con un voltaje impreso <span class="math inline">\(e(t)\)</span> y una inductancia</li>
+</ol>
+<ol start="12" type="A">
+<li>La primera ley de Kirchhoff nos da la siguiente relación <span class="math display">\[e(t)=L\frac{di}{dt}+Ri\]</span> donde <span class="math inline">\(R\)</span> es la resistencia del circuito e <span class="math inline">\(i\)</span> es la corriente. Suponga que mediante la corriente con varios valores de <span class="math inline">\(t\)</span> y obtenemos \begin{center}</li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(t\)</span></th>
+<th><span class="math inline">\(i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>3.10</td>
+</tr>
+<tr class="even">
+<td>1.01</td>
+<td>3.12</td>
+</tr>
+<tr class="odd">
+<td>1.02</td>
+<td>3.14</td>
+</tr>
+<tr class="even">
+<td>1.03</td>
+<td>3.18</td>
+</tr>
+<tr class="odd">
+<td>1.04</td>
+<td>3.24</td>
+</tr>
+</tbody>
+</table>
+<p>donde <span class="math inline">\(t\)</span> se mide en segundos. <span class="math inline">\(i\)</span> se da en amperes, la inductancia L es una constante de 0.98 henries y la resistencia es de 0.142 ohms. Aproxime <span class="math inline">\(\frac{di}{dt}\)</span>.</p>
+<ol start="8" type="1">
+<li>Aproxime la integral <span class="math inline">\(\int_0^2x^2ln(x^2+1)\,dx\)</span> usando <span class="math inline">\(h=1/3\)</span> Use</li>
+</ol>
+<ul>
+<li>La regla del trapecio</li>
+<li>La regla de Simpsoms 1/3</li>
+<li>La regla de Simpsoms 3/8</li>
+</ul>
+<ol start="9" type="1">
+<li>Determine el valor de <span class="math inline">\(n\)</span> (número de puntos) y de <span class="math inline">\(h\)</span> que se requiere para aproximar <span class="math inline">\(\int_0^2 e^{2x}\sin(3x)\,dx\)</span>, esperando que el error total sea menor que <span class="math inline">\(10^{-4}\)</span>, usando</li>
+</ol>
+<ul>
+<li>La regla del trapecio</li>
+<li>La regla de Simpsoms 1/3</li>
+<li>La regla de Simpsoms 3/8</li>
+</ul>
+<p><img src="figures/tabla.png" class="img-fluid"></p>
+<ol start="10" type="1">
+<li>Realice una tabla de comparación de los métodos Euler implicito, Euler explicito y Runge-Kutta de orden 4</li>
+<li>Solucione el siguiente problema de valor inicial <span class="math display">\[ \frac{dy}{dt}=y-t^2+1, \quad 0\leq t \leq 2, \quad y(0)=0.5\]</span> con <span class="math inline">\(h=0.2,0.1,0.05\)</span> usando</li>
+</ol>
+<ul>
+<li>Euler implícito</li>
+<li>Euler explicito</li>
+<li>Runge-Kutta de orden 4</li>
+</ul>
+<p>Encuentre el error en cada uno de los métodos para cada <span class="math inline">\(h\)</span> y comparelos</p>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>Aqui nosotros presentaremos los apuntes de algunos métodos numéricos que se utilizan en la Ingenería. Los métodos numéricos son una herramienta muy útil para resolver problemas que no tienen solución analítica o que son muy complicados de resolver analíticamente.</p>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
